@@ -6,12 +6,12 @@ const themes = {
     quartenary: "#F5918B", //light coral- hover
     quinary: "#FFD166", //orange yellow- header and footer
   },
-  special: {
+  light: {
     primary: "#292928", //jet text
     secondary: "#E8E9EB", //platinum background
     tertiary: "#EF6461", //fire opal- link
     quartenary: "#FFD166", //orange- yellow- active
-    quinary: "#26547C", //b'dazzled blue header
+    quinary: "#408DB5", // blue NCS header
   },
 };
 

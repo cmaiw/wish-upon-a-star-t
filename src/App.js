@@ -54,11 +54,11 @@ const ThemeImage = styled.img`
 `;
 
 function App() {
-  const [theme, setTheme] = React.useState(themes.default, themes.special);
+  const [theme, setTheme] = React.useState(themes.default, themes.light);
 
   function handleClick() {
     if (theme === themes.default) {
-      setTheme(themes.special);
+      setTheme(themes.light);
     } else {
       setTheme(themes.default);
     }
