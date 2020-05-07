@@ -7,7 +7,7 @@ import { ThemeProvider } from "emotion-theming";
 import styled from "@emotion/styled";
 import themes from "./utils/themes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LandingPage from "./pages/LandingP";
+import LandingPage from "./pages/Landing";
 
 const Container = styled.div`
   display: flex;
