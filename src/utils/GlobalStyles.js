@@ -13,12 +13,12 @@ export default function GlobalStyles() {
         }
         body {
           display: flex;
-          margin: 0px;
           padding: 0px;
           height: 100vh;
           width: 100vw;
           background-color: ${(props) => props.theme.secondary};
           font-family: "Orbitron", sans-serif;
+          margin: 0px;
         }
       `}
     />
