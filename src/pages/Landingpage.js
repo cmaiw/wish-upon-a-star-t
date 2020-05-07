@@ -16,7 +16,7 @@ const LandingPBg = styled.div`
     rgba(0, 0, 0, 1) 0%,
     rgba(20, 45, 93, 0.9374124649859944) 100%
   );
-  margin-top: 0px;
+  margin-top: 45px;
 `;
 
 const LandingPContainer = styled.div`
@@ -34,16 +34,17 @@ const EarthImg = styled.img`
   width: 100%;
   opacity: 0.6;
   position: relative;
+  z-index: 1;
 `;
 
 const move = keyframes`
     0% {
-      top: -88px;
-      right: -488px;
+      top: -210px;
+      right: -688px;
     }
     100% {
       top: 100px;
-      right: 488px;
+      right: 388px;
     }
     `;
 
@@ -63,7 +64,7 @@ const ShootingStarImg = styled.img`
   height: auto;
   position: relative;
   width: 90%;
-  animation: ${move} 1s;
+  animation: ${move} 1s ease;
   margin-top: 80px;
 `;
 
@@ -79,15 +80,16 @@ const WelcomeTxtContainer = styled.div`
   color: whitesmoke;
   opacity: 0.7;
   margin-top: 0px;
+  z-index: 2;
 `;
 
 const WelcomeTxt = styled.div`
-  font-size: 1em;
+  font-size: 0.7em;
   color: whitesmoke;
   margin-top: 0px;
 `;
 const WelcomeTxt2 = styled.div`
-  font-size: 0.7em;
+  font-size: 0.6em;
   color: whitesmoke;
 `;
 
