@@ -145,9 +145,9 @@ export default function NasaInfos() {
   const [query, setQuery] = React.useState("");
 
   async function getNasaDatabyDate() {
-    const api_key = process.env.REACT_APP_API_KEY;
+    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
     const response = await fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=${api_key}&date=${query}`
+      `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}&date=${query}`
     );
     const data = await response.json();
     return data;
@@ -192,11 +192,11 @@ export default function NasaInfos() {
           <Main>
             {nasaInfos && (
               <Card>
-                <H4>Astronomical pic of the day: </H4>
                 <H4>{nasaInfos.title}</H4>
-                <H4>date: {nasaInfos.date}</H4>
+                <P>Astronomical pic of the day: </P>
                 <Img src={nasaInfos.hdurl} />
-                <H3>© {nasaInfos.copyright}</H3>
+                <P>date: {nasaInfos.date}</P>
+                <P>© {nasaInfos.copyright}</P>
                 <H3>Explanation:</H3>
                 <P>{nasaInfos.explanation}</P>
                 <A href={nasaInfos.hdurl} target="_blank">
