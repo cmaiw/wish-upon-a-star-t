@@ -1,4 +1,14 @@
+# Welcome to this Repository" <img src="https://github.com/cmaiw/nasa-pics/blob/master/public/logoApp.png" align="right" width="200">
+
+Wish upon a star is a cute, full responsive web application withanimated Landingpage, theming, search function. It allows you to discover the NASAs public apod API. You can see the Astronomy Picture of the Day and read additional information about it. The search function allows to browse older pictures by date. Try it out and have fun!
+
+You will need your own API-Key -> [Click here](https://api.nasa.gov/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## How to start:
+
+Clone repository to your local machine and **npm i**
 
 ## Available Scripts
 
