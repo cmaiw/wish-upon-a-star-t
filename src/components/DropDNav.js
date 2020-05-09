@@ -33,7 +33,7 @@ export default function DropDNav() {
   flex-direction: row;
   justify-content: space-between;
   height: auto;
-  min-width: 78%;
+  min-width: 95%;
   z-index: 5;
   cursor: pointer;
   }

@@ -89,12 +89,12 @@ export default function About() {
             quick from page to page. Enjoy the Trip and come back soon my
             friend!
           </P>
-          <P>Oh...and...do not forget to make a whish on the shooting star.</P>
           <P>
-            You love al lighter background? Click
+            You love a lighter background? Click
             <Icon src="/images/sun-moon-icon.png" /> and I will change the theme
             for you.
           </P>
+          <P>Oh...and...do not forget to make a whish on the shooting star.</P>
         </Article>
         <Article>
           <H3>Credits:</H3>
