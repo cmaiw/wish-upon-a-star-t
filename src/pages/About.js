@@ -40,6 +40,7 @@ export default function About() {
   const P = styled.p`
     color: ${(props) => props.theme.primary};
     margin-bottom: 8px;
+    padding: 3px;
   `;
 
   const AlienIcon = styled.img`
@@ -65,6 +66,7 @@ export default function About() {
     color: ${(props) => props.theme.quinary};
     &:hover {
       color: ${(props) => props.theme.tertiary};
+      padding: 6px 6px 6px 6px;
     }
   `;
 
@@ -98,30 +100,31 @@ export default function About() {
             Special Thanks to the{" "}
             <Link href="https://api.nasa.gov/" target="_blank">
               NASA
-            </Link>
+            </Link>{" "}
             for taking us to space!
           </P>
           <P>Thanks to the free Icon Sources:</P>
           <P>
-            Globe: made by:
+            Globe: made by:{" "}
             <Link
               href="https://www.flaticon.com/authors/those-icons"
               title="Those
           Icons"
               target="_blank"
             >
+              {" "}
               Those Icons:
             </Link>{" "}
           </P>
           <P>
-            from
+            from:{" "}
             <Link
               href="https://www.flaticon.com/"
               title="Flaticon"
               target="_blank"
             >
               www.flaticon.com
-            </Link>
+            </Link>{" "}
             Telescope made by:{" "}
             <Link
               href="https://www.flaticon.com/authors/freepik"
@@ -146,7 +149,7 @@ export default function About() {
             </Link>
           </P>
           <P>
-            Planet Earth on landingpage:
+            Planet Earth on landingpage:{" "}
             <Link
               href="https://picsart.com/es_es/i/sticker-planet-267730243011211"
               target="_blank"

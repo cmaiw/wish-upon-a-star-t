@@ -20,7 +20,7 @@ export default function DropDNav() {
     border: none;
     outline: none;
     background: none;
-    margin-left: 38px;
+    margin-left: 24px;
     cursor: pointer;
     z-index: 5;
   `;
@@ -28,11 +28,12 @@ export default function DropDNav() {
   const Dropdown = styled.div`
   position: fixed;
   top: 90px;
-  left: 0px;
+  left: 15px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   height: auto;
-  width: 100%;
+  min-width: 78%;
   z-index: 5;
   cursor: pointer;
   }
@@ -45,10 +46,10 @@ export default function DropDNav() {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 95%;
+  width: 92%;
   height: 80px;
-  padding: 8px 40px 8px 60px;
-  margin: -20px 10px 10px 10px;
+  padding: 8px 30px 8px 80px;
+  margin: -10px 10px auto auto;
   background-color: ${(props) => props.theme.primary};
   color: background-color: ${(props) => props.theme.secondary};
   border-radius: 12px;
@@ -95,13 +96,13 @@ export default function DropDNav() {
           <NavLink to="/image-search">
             <NavItem>
               <Icon src="/images/telescope.png" />
-              space
+              Space
             </NavItem>
           </NavLink>
           <NavLink to="/about">
             <NavItem>
               <Icon src="/images/alien.png" />
-              about
+              About
             </NavItem>
           </NavLink>
         </Dropcontent>
