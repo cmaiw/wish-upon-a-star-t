@@ -58,7 +58,7 @@ const Form = styled.form`
   height: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 20px 20px 20px;
+  padding: 80px 20px 00px 20px;
   background-color: ${(props) => props.theme.secondary};
 `;
 
@@ -112,6 +112,15 @@ const P = styled.p`
   text-align: flex-start;
   color: ${(props) => props.theme.primary};
   text-align: flex-start;
+`;
+
+const Note = styled.p`
+  text-align: flex-start;
+  color: ${(props) => props.theme.primary};
+  text-align: flex-start;
+  padding-left: 20px;
+  font-size: 12px;
+  padding-top: 0px;
 `;
 
 const A = styled.a`
@@ -189,6 +198,10 @@ export default function NasaInfos() {
             ></DateInput>
             <SearchButton type="submit">Search</SearchButton>
           </Form>
+          <Note>
+            Please note, you can only search for a date between 2015-01-01 and
+            today.
+          </Note>
           <Main>
             {nasaInfos && (
               <Card>
