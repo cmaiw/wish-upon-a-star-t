@@ -83,11 +83,13 @@ export default function About() {
             Astronomy Picture of the Day and their database with daily pictures
             since 2015-01-01. A click on the globe{" "}
             <Icon src="/images/globe.png" />
-            will bring you back to earth (landingpage). If you want to come
-            back, click me, your alien- friend. A Secret Menu is hidden ander
+            will bring you back to earth (landing page). If you want to come
+            back, click me, your alien- friend. A Secret menu is hidden under
             the three blue dots <MenueIcon src="/images/menu.png" />, to beam us
-            quick from page to page. Enjoy the Trip and come back soon!
+            quick from page to page. Enjoy the Trip and come back soon my
+            friend!
           </P>
+          <P>Oh...and...do not forget to make a whish on the shooting star.</P>
           <P>
             You love al lighter background? Click
             <Icon src="/images/sun-moon-icon.png" /> and I will change the theme
