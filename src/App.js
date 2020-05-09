@@ -74,7 +74,7 @@ const DropButton = styled.button`
   border: none;
   outline: none;
   background: none;
-  margin-left: 70px;
+  margin-left: 150px;
   cursor: pointer;
 `;
 
@@ -85,7 +85,7 @@ const Dropdown = styled.div`
   display: inline-block;
   height: auto;
   width: auto;
-  z-index: 2;
+  z-index: 5;
   cursor: pointer;
   &:hover {
     display: block;
@@ -100,17 +100,17 @@ const Dropcontent = styled.div`
   position: relative;
   display: block;
   flex-direction: column;
-  width: 120px;
+  width: 180px;
   padding: 8px;
   background-color: ${(props) => props.theme.primary};
   color: background-color: ${(props) => props.theme.secondary};
   border-radius: 12px;
   border: 2px solid ${(props) => props.theme.quinary};
   &:hover {
-    opacity: 0.8;
+    opacity: 0.97;
   }
   &:active {
-    opacity: 0.8;
+    opacity: 0.97;
   }
 `;
 
@@ -118,12 +118,18 @@ const NavItem = styled.div`
   text-decoration: none;
   background-color: ${(props) => props.theme.primary};
   color: ${(props) => props.theme.secondary};
-  padding: 8px;
+  padding: 20px;
 `;
 
 const MenueIcon = styled.img`
   width: 30px;
   height: auto;
+`;
+
+const Icon = styled.img`
+  width: 24px;
+  height: 24px;
+  margin: 2px 6px 0px 6px;
 `;
 
 function App() {
@@ -159,13 +165,22 @@ function App() {
               </DropButton>
               <Dropcontent>
                 <NavLink to="/">
-                  <NavItem>Earth</NavItem>
+                  <NavItem>
+                    <Icon src="/images/globe.png" />
+                    Earth
+                  </NavItem>
                 </NavLink>
                 <NavLink to="/image-search">
-                  <NavItem>space</NavItem>
+                  <NavItem>
+                    <Icon src="/images/telescope.png" />
+                    space
+                  </NavItem>
                 </NavLink>
                 <NavLink to="/about">
-                  <NavItem>about</NavItem>
+                  <NavItem>
+                    <Icon src="/images/alien.png" />
+                    about
+                  </NavItem>
                 </NavLink>
               </Dropcontent>
             </Dropdown>
