@@ -192,7 +192,7 @@ export default function NasaInfos() {
           <Form onSubmit={getDate}>
             <DateInput
               onChange={updateDate}
-              type="text"
+              type="date"
               placeholder="Search by date: yyyy-mm-dd."
               value={date}
             ></DateInput>
