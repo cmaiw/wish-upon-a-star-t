@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { keyframes } from "@emotion/core";
 
 export default function About() {
   const PageContainer = styled.div`
