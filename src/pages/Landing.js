@@ -16,25 +16,28 @@ const LandingPBg = styled.div`
     rgba(0, 0, 0, 1) 0%,
     rgba(20, 45, 93, 0.9374124649859944) 100%
   );
-  margin-top: 45px;
+  padding-top: 45px;
 `;
 
 const LandingPContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 370px;
   height: 670px;
   overflow: hidden;
+  margin-top: 68px;
 `;
 
 const EarthImg = styled.img`
   display: flex;
   height: auto;
-  width: 100%;
+  width: 75%;
   opacity: 0.6;
   position: relative;
+  position: fixed;
+  bottom: 0;
 `;
 
 const move = keyframes`
@@ -61,12 +64,12 @@ const move = keyframes`
 const AnimationContainer = styled.div`
   display: flex;
   height: auto;
-  width: 70%%;
-  align-self: center;
-  justify-content: flex-end;
+  width: 80%;
+  align-self: flex-end;
+  justify-content: center;
   align-items: center;
   opacity: 0.8;
-  margin-top: 45px;
+  margin-top: 0px;
 `;
 
 const ShootingStarImg = styled.img`
@@ -75,13 +78,13 @@ const ShootingStarImg = styled.img`
   position: relative;
   width: 80%;
   animation: ${move} 0.5s ease-in;
-  margin-top: 85px;
+  margin-top: 0px;
 `;
 
 const WelcomeTxtContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   max-height: 230px;
@@ -91,6 +94,7 @@ const WelcomeTxtContainer = styled.div`
   opacity: 0.7;
   margin: 0px;
   padding: 0px;
+  z-index: 3;
 `;
 
 const WelcomeTxt = styled.h2`
@@ -107,7 +111,7 @@ const WelcomeTxt2 = styled.h4`
 const TelescopeIcon = styled.img`
   width: 60px;
   height: 60px;
-  opacity: 0.75;
+  opacity: 0.9;
   margin: 5px;
   &:hover {
     opacity: 1;
@@ -117,7 +121,7 @@ const TelescopeIcon = styled.img`
 const AlienIcon = styled.img`
   width: 40px;
   height: 40px;
-  opacity: 0.75;
+  opacity: 0.9;
   margin: 5px;
   &:hover {
     opacity: 1;

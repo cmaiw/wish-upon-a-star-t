@@ -7,12 +7,11 @@ export default function About() {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 65px;
     width: 100vw;
     height: auto;
     background-color: ${(props) => props.theme.secondary};
-    margin-top: 45px;
     z-index: -1;
+    padding-top: 65px;
   `;
 
   const ContentContainer = styled.div`
@@ -56,6 +55,12 @@ export default function About() {
     margin: 2px 6px 0px 6px;
   `;
 
+  const MenueIcon = styled.img`
+    width: 48px;
+    height: 12px;
+    margin: 2px 6px 0px 6px;
+  `;
+
   const Link = styled.a`
     color: ${(props) => props.theme.quinary};
     &:hover {
@@ -77,7 +82,9 @@ export default function About() {
             since 2015-01-01. A click on the globe{" "}
             <Icon src="/images/globe.png" />
             will bring you back to earth (landingpage). If you want to come
-            back, click me, your alien- friend.
+            back, click me, your alien- friend. A Secret Menu is hidden ander
+            the three blue dots <MenueIcon src="/images/menu.png" />, to beam us
+            quick from page to page. Enjoy the Trip and come back soon!
           </P>
           <P>
             You love al lighter background? Click
