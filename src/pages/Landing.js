@@ -26,6 +26,7 @@ const LandingPContainer = styled.div`
   align-items: center;
   width: 370px;
   height: 670px;
+  overflow: hidden;
 `;
 
 const EarthImg = styled.img`
@@ -34,38 +35,47 @@ const EarthImg = styled.img`
   width: 100%;
   opacity: 0.6;
   position: relative;
-  z-index: 1;
 `;
 
 const move = keyframes`
-    0% {
-      top: -210px;
-      right: -688px;
-    }
-    100% {
-      top: 100px;
-      right: 388px;
-    }
+  0% {
+    transform: translate(160px, -64px);
+  }
+  25% {
+    transform: translate(120px, -48px);
+  }
+
+  50% {
+    transform: translate(80px, -32px);
+  }
+
+  75% {
+    transform: translate(40px, -16x);
+  }
+ 
+  100% {
+    transform: translate( 0px, 0px);
+}
     `;
 
 const AnimationContainer = styled.div`
   display: flex;
   height: auto;
-  width: 100%;
+  width: 70%%;
   align-self: center;
   justify-content: flex-end;
   align-items: center;
   opacity: 0.8;
-  margin-top: 0px;
+  margin-top: 45px;
 `;
 
 const ShootingStarImg = styled.img`
   display: flex;
   height: auto;
   position: relative;
-  width: 90%;
-  animation: ${move} 1s ease;
-  margin-top: 80px;
+  width: 80%;
+  animation: ${move} 0.5s ease-in;
+  margin-top: 85px;
 `;
 
 const WelcomeTxtContainer = styled.div`
@@ -76,39 +86,50 @@ const WelcomeTxtContainer = styled.div`
   text-align: center;
   max-height: 230px;
   min-width: 300px;
-  font-size: 2.2em;
+  font-size: 1em;
   color: whitesmoke;
   opacity: 0.7;
-  margin-top: 0px;
-  z-index: 2;
+  margin: 0px;
+  padding: 0px;
 `;
 
-const WelcomeTxt = styled.div`
-  font-size: 0.7em;
+const WelcomeTxt = styled.h2`
   color: whitesmoke;
-  margin-top: 0px;
+  margin: 0px;
+  padding: 5px;
 `;
-const WelcomeTxt2 = styled.div`
-  font-size: 0.6em;
+const WelcomeTxt2 = styled.h4`
   color: whitesmoke;
+  margin: 0px;
+  padding: 5px;
 `;
 
 const TelescopeIcon = styled.img`
-  width: 100px;
-  height: 100px;
-  opacity: 0.5;
-
+  width: 60px;
+  height: 60px;
+  opacity: 0.75;
+  margin: 5px;
   &:hover {
-    opacity: 0.9;
+    opacity: 1;
   }
 `;
 
-const WelcomeTxt3 = styled.div`
-  font-size: 0.7em;
+const AlienIcon = styled.img`
+  width: 40px;
+  height: 40px;
+  opacity: 0.75;
+  margin: 5px;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const WelcomeTxt3 = styled.p`
   color: whitesmoke;
   opacity: 0.7;
   cursor: pointer;
-  margin-bottom: 0px;
+  margin: 0px;
+  padding: 5px;
 `;
 
 function LandingPage() {
@@ -122,9 +143,13 @@ function LandingPage() {
           <WelcomeTxt>Welcome Adventurer!</WelcomeTxt>
           <WelcomeTxt2>Let us discover space!</WelcomeTxt2>
           <NavLink to="/image-search">
-            <TelescopeIcon src="/images/telescope.png" />
+            <TelescopeIcon src="/images/telescope.png" alt="telescope-icon" />
           </NavLink>
-          <WelcomeTxt3>Go to Search!</WelcomeTxt3>
+          <WelcomeTxt3>Go to space!</WelcomeTxt3>
+          <NavLink to="/About">
+            <AlienIcon src="/images/alien.png" alt="alien-icon" />
+          </NavLink>
+          <WelcomeTxt3>First Time here? Click the Alien!</WelcomeTxt3>
         </WelcomeTxtContainer>
         <EarthImg
           src="/images/earth_glowing.png"

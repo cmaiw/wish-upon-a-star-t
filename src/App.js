@@ -8,10 +8,11 @@ import styled from "@emotion/styled";
 import themes from "./utils/themes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing";
+import About from "./pages/About";
 
 const Container = styled.div`
   display: flex;
-  height: 68px;
+  height: 60px;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
@@ -24,15 +25,15 @@ const Container = styled.div`
 
 const ThemeSwitch = styled.button`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   align-self: flex-end;
-  width: 21%;
+  width: 20%;
   height: 100%;
   border: none;
   color: ${(props) => props.theme.secondary};
   background-color: ${(props) => props.theme.quinary};
-  padding: 0px;
+  padding-right: 25px;
   margin: 0px;
   font-size: 0.8em;
   outline: none;
@@ -49,8 +50,7 @@ const ThemeImage = styled.img`
   justify-content: center;
   align-items: center;
   width: auto;
-  max-height: 48px;
-  opacity: 1;
+  max-height: 38px;
 `;
 
 function App() {
@@ -85,6 +85,9 @@ function App() {
             </Route>
             <Route exact path="/image-search">
               <NasaInfos />
+            </Route>
+            <Route exact path="/about">
+              <About />
             </Route>
           </Switch>
         </Router>

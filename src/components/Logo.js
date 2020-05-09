@@ -3,31 +3,31 @@ import styled from "@emotion/styled";
 import planet from "../resources/planet.png";
 
 const Container = styled.div`
-  width: 75%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  z-index: 1;
   padding: 0px;
+  margin: 0px;
   position: relative;
 `;
 
 const Title = styled.h1`
   text-align: center;
-  margin: 0;
-  font-size: 1.6em;
+  font-size: 1.4em;
   color: ${(props) => props.theme.secondary};
   text-shadow: 1px 1px 2px ${(props) => props.theme.primary};
-  padding: 3px;
+  padding: 0px;
+  margin: 0px;
   letter-spacing: 2px;
   font-family: "Orbitron", sans-serif;
 `;
 
 const LogoIcon = styled.img`
   height: auto;
-  width: 140px;
-  margin-top: 30px;
+  width: 80px;
+  margin: 30px 0px 0px 0px;
   padding: 0px;
 `;
 
