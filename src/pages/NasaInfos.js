@@ -206,9 +206,9 @@ export default function NasaInfos() {
             {nasaInfos && (
               <Card>
                 <H4>{nasaInfos.title}</H4>
-                <P>Astronomical pic of the day: </P>
+                <P>Astronomy Picture of the Day: </P>
                 <Img src={nasaInfos.hdurl} />
-                <P>date: {nasaInfos.date}</P>
+                <P>Date: {nasaInfos.date}</P>
                 <P>© {nasaInfos.copyright}</P>
                 <H3>Explanation:</H3>
                 <P>{nasaInfos.explanation}</P>
@@ -220,7 +220,7 @@ export default function NasaInfos() {
             <NavLink to="/">
               <EarthIcon src="/images/globe.png" />
             </NavLink>
-            <P>Back to earth!</P>
+            <P>Back to planet Earth!</P>
           </Main>
         </CContainer>
       </PContainer>
