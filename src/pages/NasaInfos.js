@@ -148,6 +148,17 @@ const EarthIcon = styled.img`
   }
 `;
 
+const Iframe = styled("iframe")`
+display: flex;
+  max-width: 98%;
+  height: auto;
+  border: 5px solid ${(props) => props.theme.quinary};
+  background-color; ${(props) => props.theme.quinary};
+  margin: auto;
+  padding: 0px;
+  border-radius: 12px;
+`;
+
 export default function NasaInfos() {
   const [nasaInfos, setNasaInfos] = React.useState([]);
   const [date, setDate] = React.useState("");
@@ -174,7 +185,6 @@ export default function NasaInfos() {
 
   const updateDate = (e) => {
     setDate(e.target.value);
-    console.log(date);
   };
 
   const getDate = (e) => {
@@ -182,8 +192,6 @@ export default function NasaInfos() {
     setQuery(date);
     setDate("");
   };
-
-  console.log(nasaInfos);
 
   return (
     <>
@@ -207,14 +215,26 @@ export default function NasaInfos() {
               <Card>
                 <H4>{nasaInfos.title}</H4>
                 <P>Astronomy Picture of the Day: </P>
-                <Img src={nasaInfos.hdurl} />
+                <H4>{nasaInfos.title}</H4>
+                <P>Astronomy Picture of the Day: </P>
+                {nasaInfos.media_type === "video" ? (
+                  <Iframe src={nasaInfos.url}></Iframe>
+                ) : (
+                  <Img src={nasaInfos.hdurl} />
+                )}
                 <P>Date: {nasaInfos.date}</P>
                 <P>© {nasaInfos.copyright}</P>
                 <H3>Explanation:</H3>
                 <P>{nasaInfos.explanation}</P>
-                <A href={nasaInfos.hdurl} target="_blank">
-                  Open picture in new Window!
-                </A>
+                {nasaInfos.media_type === "video" ? (
+                  <A href={nasaInfos.url} target="_blank">
+                    Open picture in new Window!
+                  </A>
+                ) : (
+                  <A href={nasaInfos.hdurl} target="_blank">
+                    Open picture in new Window!
+                  </A>
+                )}
               </Card>
             )}
             <NavLink to="/">
