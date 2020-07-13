@@ -215,8 +215,6 @@ export default function NasaInfos() {
               <Card>
                 <H4>{nasaInfos.title}</H4>
                 <P>Astronomy Picture of the Day: </P>
-                <H4>{nasaInfos.title}</H4>
-                <P>Astronomy Picture of the Day: </P>
                 {nasaInfos.media_type === "video" ? (
                   <Iframe src={nasaInfos.url}></Iframe>
                 ) : (
