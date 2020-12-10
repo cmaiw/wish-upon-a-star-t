@@ -5,10 +5,11 @@ export default function About() {
   const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100vw;
-    height: auto;
+    min-height: 100vh;
+    height: fit-content;
     background-color: ${(props) => props.theme.secondary};
     z-index: -1;
     padding-top: 65px;
@@ -19,7 +20,8 @@ export default function About() {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 340px;
+    min-width: 300px;
+    width: 95%;
     height: 100%;
     margin-bottom: 50px;
     font-size: 1em;
@@ -29,11 +31,12 @@ export default function About() {
     display: flex;
     flex-direction: column;
     text-align: flex-start;
+    width: 100%;
   `;
 
   const H3 = styled.h3`
     color: ${(props) => props.theme.primary};
-    text-align: center;
+    text-align: flex-start;
     letter-spacing: 2px;
   `;
 
@@ -46,7 +49,7 @@ export default function About() {
   const AlienIcon = styled.img`
     width: 48px;
     height: 48px;
-    margin: 2px 6px 0px 6px;
+    margin: 30px 6px 30px 6px;
     align-self: center;
   `;
 
