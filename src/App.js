@@ -26,15 +26,15 @@ const Container = styled.div`
 
 const ThemeSwitch = styled.button`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   align-self: flex-end;
-  width: 20%;
+  width: fit-content;
   height: 100%;
   border: none;
   color: ${(props) => props.theme.secondary};
   background-color: ${(props) => props.theme.quinary};
-  padding-right: 25px;
+  padding-right: 10px;
   margin: 0px;
   font-size: 0.8em;
   outline: none;
