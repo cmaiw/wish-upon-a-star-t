@@ -6,8 +6,8 @@ export const DropButton = ({onClick}) => {
   
   const Button = styled.button`
   position: fixed;
-  top: 90px;
-  left: 10px;
+  top: 85px;
+  left: 5px;
     display: flex;
     align-self: flex-start;
     width: 40px;
@@ -34,7 +34,7 @@ return(
 export const DropDNav = ({menueIsVisible, style}) => {
   const TopNav = styled.nav`
     position: fixed;
-    top: 100px;
+    top: 90px;
     left: 25px;
     flex-direction: column;
     align-items: flex-start;
