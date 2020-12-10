@@ -9,7 +9,7 @@ import themes from "./utils/themes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import About from "./pages/About";
-import DropDNav from "./components/DropDNav";
+import { DropDNav, DropButton } from "./components/DropDNav";
 
 const Container = styled.div`
   display: flex;
@@ -56,14 +56,17 @@ const ThemeImage = styled.img`
 
 function App() {
   const [theme, setTheme] = React.useState(themes.default, themes.light);
+  const [menueIsVisible, setMenueIsVisible] = React.useState(false)
 
-  function handleClick() {
+  const handleClick = () => {
     if (theme === themes.default) {
       setTheme(themes.light);
     } else {
       setTheme(themes.default);
     }
   }
+
+  const handleDropBtnClick = () => menueIsVisible ? setMenueIsVisible(false) : setMenueIsVisible(true)
 
   return (
     <>
@@ -80,7 +83,8 @@ function App() {
               />
             </ThemeSwitch>
           </Container>
-          <DropDNav />
+          <DropButton id='DropNavBtn' onClick={handleDropBtnClick}/>
+          <DropDNav id='DropNav' style={{ display: menueIsVisible ? "block" : "none" }}/>
           <Switch>
             <Route exact path="/">
               <LandingPage />
