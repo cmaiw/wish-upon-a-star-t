@@ -67,7 +67,7 @@ const Form = styled.form`
 
 const Img = styled.img`
   display: flex;
-  width: 98%;
+  width: 100%;
   min-height: 250px;
   border: 5px solid ${(props) => props.theme.quinary};
   background-color; ${(props) => props.theme.quinary};
@@ -147,12 +147,12 @@ const EarthIcon = styled.img`
 
 const Iframe = styled("iframe")`
 display: flex;
-  max-width: 98%;
+  width: 100%;
+  min-height: 250px;
   height: auto;
   border: 5px solid ${(props) => props.theme.quinary};
   background-color; ${(props) => props.theme.quinary};
-  margin: auto;
-  padding: 0px;
+  padding: 0;
   border-radius: 12px;
 `;
 
