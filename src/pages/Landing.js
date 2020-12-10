@@ -24,7 +24,8 @@ const LandingPContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 370px;
+  max-width: 370px;
+  min-width: 280px;
   height: 670px;
   overflow: hidden;
   margin-top: 68px;

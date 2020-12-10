@@ -9,7 +9,7 @@ import themes from "./utils/themes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import About from "./pages/About";
-import DropDNav from "./components/DropDNav";
+import { DropDNav, DropButton } from "./components/DropDNav";
 
 const Container = styled.div`
   display: flex;
@@ -26,15 +26,15 @@ const Container = styled.div`
 
 const ThemeSwitch = styled.button`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   align-self: flex-end;
-  width: 20%;
+  width: fit-content;
   height: 100%;
   border: none;
   color: ${(props) => props.theme.secondary};
   background-color: ${(props) => props.theme.quinary};
-  padding-right: 25px;
+  padding-right: 10px;
   margin: 0px;
   font-size: 0.8em;
   outline: none;
@@ -56,14 +56,17 @@ const ThemeImage = styled.img`
 
 function App() {
   const [theme, setTheme] = React.useState(themes.default, themes.light);
+  const [menueIsVisible, setMenueIsVisible] = React.useState(false)
 
-  function handleClick() {
+  const handleClick = () => {
     if (theme === themes.default) {
       setTheme(themes.light);
     } else {
       setTheme(themes.default);
     }
   }
+
+  const handleDropBtnClick = () => menueIsVisible ? setMenueIsVisible(false) : setMenueIsVisible(true)
 
   return (
     <>
@@ -80,7 +83,8 @@ function App() {
               />
             </ThemeSwitch>
           </Container>
-          <DropDNav />
+          <DropButton id='DropNavBtn' onClick={handleDropBtnClick}/>
+          <DropDNav id='DropNav' style={{ display: menueIsVisible ? "block" : "none" }}/>
           <Switch>
             <Route exact path="/">
               <LandingPage />
