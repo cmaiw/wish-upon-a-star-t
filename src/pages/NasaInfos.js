@@ -21,9 +21,11 @@ const CContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: space-around;
-  max-width: 80%;
+  max-width: 90%;
   max-height: auto;
   background-color: ${(props) => props.theme.secondary};
+  margin-bottom: 30px;
+  margin-top: 20px;
 `;
 
 const Main = styled.main`
@@ -42,9 +44,10 @@ const Card = styled.div`
   flex-direction: column;
   min-height: 900px;
   min-width: 98%;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   font-family: "Orbitron", sans-serif;
+  text-align: flex-start;
   font-size: 1.2rem;
   color: ${(props) => props.theme.primary};
   background-color: ${(props) => props.theme.secondary};
@@ -54,11 +57,11 @@ const Card = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: row;
-  min-width: 98%;
+  min-width: 100%;
   height: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 20px 00px 20px;
+  padding-top: 80px;
   background-color: ${(props) => props.theme.secondary};
 `;
 
@@ -78,7 +81,7 @@ const SearchButton = styled.button`
   align-self: flex-start;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: fit-content;
   height: 36px;
   background-color: ${(props) => props.theme.primary};
   color: ${(props) => props.theme.secondary};
@@ -96,14 +99,8 @@ const SearchButton = styled.button`
   }
 `;
 
-const H3 = styled.h2`
-  color: ${(props) => props.theme.primary};
-  text-align: center;
-  letter-spacing: 2px;
-`;
-
-const H4 = styled.h3`
-  text-align: center;
+const H3 = styled.h3`
+  text-align: start;
   color: ${(props) => props.theme.primary};
   letter-spacing: 1px;
 `;
@@ -118,9 +115,8 @@ const Note = styled.p`
   text-align: flex-start;
   color: ${(props) => props.theme.primary};
   text-align: flex-start;
-  padding-left: 20px;
   font-size: 12px;
-  padding-top: 0px;
+  padding-top: 0;
 `;
 
 const A = styled.a`
@@ -128,6 +124,7 @@ const A = styled.a`
   color: ${(props) => props.theme.tertiary};
   text-decoration: none;
   margin-bottom: 30px;
+  margin-top: 20px;
   &:hover {
     color: ${(props) => props.theme.quartenary};
     border: 2px solid ${(props) => props.theme.quartenary};
@@ -213,7 +210,7 @@ export default function NasaInfos() {
           <Main>
             {nasaInfos && (
               <Card>
-                <H4>{nasaInfos.title}</H4>
+                <H3>{nasaInfos.title}</H3>
                 <P>Astronomy Picture of the Day: </P>
                 {nasaInfos.media_type === "video" ? (
                   <Iframe src={nasaInfos.url}></Iframe>
