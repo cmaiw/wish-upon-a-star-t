@@ -22,6 +22,10 @@ const Title = styled.h1`
   margin: 0px;
   letter-spacing: 2px;
   font-family: "Orbitron", sans-serif;
+
+  @media only screen and (max-width: 280px){
+    font-size: 0.85em;
+  }
 `;
 
 const LogoIcon = styled.img`
