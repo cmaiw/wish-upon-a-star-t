@@ -8,8 +8,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   position: relative;
 `;
 
@@ -18,21 +18,21 @@ const Title = styled.h1`
   font-size: 1.4em;
   color: ${(props) => props.theme.secondary};
   text-shadow: 1px 1px 2px ${(props) => props.theme.primary};
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   letter-spacing: 2px;
   font-family: "Orbitron", sans-serif;
 
-  @media only screen and (max-width: 280px){
+  @media only screen and (max-width: 17.5rem){
     font-size: 0.85em;
   }
 `;
 
 const LogoIcon = styled.img`
   height: auto;
-  width: 80px;
-  margin: 30px 0px 0px 0px;
-  padding: 0px;
+  width: 5rem;
+  margin: 2rem 0 0 0;
+  padding: 0;
 `;
 
 export default function Logo({ text }) {

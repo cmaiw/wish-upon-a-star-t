@@ -13,15 +13,15 @@ import { DropDNav, DropButton } from "./components/DropDNav";
 
 const Container = styled.div`
   display: flex;
-  height: 60px;
+  height: 3.75rem;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-left: 15px;
+  padding-left: 1rem;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 `;
 
 const ThemeSwitch = styled.button`
@@ -34,8 +34,8 @@ const ThemeSwitch = styled.button`
   border: none;
   color: ${(props) => props.theme.secondary};
   background-color: ${(props) => props.theme.quinary};
-  padding-right: 10px;
-  margin: 0px;
+  padding-right: 0.625rem;
+  margin: 0;
   font-size: 0.8em;
   outline: none;
   cursor: pointer;
@@ -51,7 +51,7 @@ const ThemeImage = styled.img`
   justify-content: center;
   align-items: center;
   width: auto;
-  max-height: 38px;
+  max-height: 2.375rem;
 `;
 
 function App() {
@@ -84,7 +84,7 @@ function App() {
             </ThemeSwitch>
           </Container>
           <DropButton id='DropNavBtn' onClick={handleDropBtnClick}/>
-          <DropDNav id='DropNav' style={{ display: menueIsVisible ? "block" : "none" }}/>
+          <DropDNav id='DropNav' style={{ display: menueIsVisible ? "block" : "none" }} />
           <Switch>
             <Route exact path="/">
               <LandingPage />

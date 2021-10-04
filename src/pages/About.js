@@ -12,7 +12,7 @@ export default function About() {
     height: fit-content;
     background-color: ${(props) => props.theme.secondary};
     z-index: -1;
-    padding-top: 65px;
+    padding-top: 4rem;
   `;
 
   const ContentContainer = styled.div`
@@ -20,7 +20,7 @@ export default function About() {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 300px;
+    min-width: 18.75rem;
     width: 95%;
     height: 100%;
     margin-bottom: 50px;
@@ -42,26 +42,26 @@ export default function About() {
 
   const P = styled.p`
     color: ${(props) => props.theme.primary};
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     padding: 3px;
   `;
 
   const AlienIcon = styled.img`
-    width: 48px;
-    height: 48px;
-    margin: 30px 6px 30px 6px;
+    width: 3rem;
+    height:3rem;
+    margin: 2rem 0.75rem;
     align-self: center;
   `;
 
   const Icon = styled.img`
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     margin: 2px 6px 0px 6px;
   `;
 
   const MenueIcon = styled.img`
-    width: 48px;
-    height: 12px;
+    width: 3rem;
+    height: 0.75rem;
     margin: 2px 6px 0px 6px;
   `;
 
@@ -69,7 +69,7 @@ export default function About() {
     color: ${(props) => props.theme.quinary};
     &:hover {
       color: ${(props) => props.theme.tertiary};
-      padding: 6px 6px 6px 6px;
+      padding: 0.25rem;
     }
   `;
 

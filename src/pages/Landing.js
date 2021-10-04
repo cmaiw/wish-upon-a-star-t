@@ -16,7 +16,7 @@ const LandingPBg = styled.div`
     rgba(0, 0, 0, 1) 0%,
     rgba(20, 45, 93, 0.9374124649859944) 100%
   );
-  padding-top: 45px;
+  padding-top: 3rem;
 `;
 
 const LandingPContainer = styled.div`
@@ -24,11 +24,11 @@ const LandingPContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-width: 370px;
-  min-width: 280px;
-  height: 670px;
+  max-width: 23.125rem;
+  min-width: 17.5rem;
+  min-height: 41.875rem;
   overflow: hidden;
-  margin-top: 68px;
+  margin-top: 5rem;
 `;
 
 const EarthImg = styled.img`
@@ -36,29 +36,32 @@ const EarthImg = styled.img`
   height: auto;
   width: 75%;
   opacity: 0.6;
-  position: relative;
   position: fixed;
   bottom: 0;
+
+  @media only screen and (min-width: 50rem){
+    bottom: -1.25rem;
+  }
 `;
 
 const move = keyframes`
   0% {
-    transform: translate(160px, -64px);
+    transform: translate(10rem, -4rem);
   }
   25% {
-    transform: translate(120px, -48px);
+    transform: translate(7.5rem, -3rem);
   }
 
   50% {
-    transform: translate(80px, -32px);
+    transform: translate(5rem, -2rem);
   }
 
   75% {
-    transform: translate(40px, -16x);
+    transform: translate(2.5px, -1rem);
   }
  
   100% {
-    transform: translate( 0px, 0px);
+    transform: translate( 0, 0);
 }
     `;
 
@@ -70,7 +73,7 @@ const AnimationContainer = styled.div`
   justify-content: center;
   align-items: center;
   opacity: 0.8;
-  margin-top: 0px;
+  margin-top: 5rem;
 `;
 
 const ShootingStarImg = styled.img`
@@ -78,8 +81,8 @@ const ShootingStarImg = styled.img`
   height: auto;
   position: relative;
   width: 80%;
-  animation: ${move} 0.5s ease-in;
-  margin-top: 0px;
+  animation: ${move} 0.25s ease-in;
+  margin-top: 0;
 `;
 
 const WelcomeTxtContainer = styled.div`
@@ -88,42 +91,42 @@ const WelcomeTxtContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  max-height: 230px;
-  min-width: 300px;
+  max-height: 14.375rem;
+  min-width: 18.75rem;
   font-size: 1em;
   color: whitesmoke;
   opacity: 0.7;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   z-index: 3;
 `;
 
 const WelcomeTxt = styled.h2`
   color: whitesmoke;
-  margin: 0px;
-  padding: 5px;
+  margin: 0;
+  padding: 0.25rem;
 `;
 const WelcomeTxt2 = styled.h4`
   color: whitesmoke;
-  margin: 0px;
-  padding: 5px;
+  margin: 0;
+  padding: 0.25rem;
 `;
 
 const TelescopeIcon = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   opacity: 0.9;
-  margin: 5px;
+  margin: 0.25rem;
   &:hover {
     opacity: 1;
   }
 `;
 
 const AlienIcon = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   opacity: 0.9;
-  margin: 5px;
+  margin: 0.25rem;
   &:hover {
     opacity: 1;
   }
@@ -133,8 +136,8 @@ const WelcomeTxt3 = styled.p`
   color: whitesmoke;
   opacity: 0.7;
   cursor: pointer;
-  margin: 0px;
-  padding: 5px;
+  margin: 0;
+  padding: 0.25rem;
 `;
 
 function LandingPage() {
