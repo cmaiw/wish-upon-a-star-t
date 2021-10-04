@@ -24,8 +24,8 @@ const CContainer = styled.div`
   max-width: 90%;
   max-height: auto;
   background-color: ${(props) => props.theme.secondary};
-  margin-bottom: 30px;
-  margin-top: 20px;
+  margin-bottom: 2rem;
+  margin-top: 1.5rempx;
 `;
 
 const Main = styled.main`
@@ -42,8 +42,8 @@ const Main = styled.main`
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 900px;
-  min-width: 98%;
+  max-width: 100%;
+  min-height: 100vh;
   justify-content: flex-start;
   align-items: flex-start;
   font-family: "Orbitron", sans-serif;
@@ -51,7 +51,7 @@ const Card = styled.div`
   font-size: 1.2rem;
   color: ${(props) => props.theme.primary};
   background-color: ${(props) => props.theme.secondary};
-  padding-bottom: 30px;
+  padding-bottom: 2rem;
 `;
 
 const Form = styled.form`
@@ -61,19 +61,22 @@ const Form = styled.form`
   height: auto;
   justify-content: space-between;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 5rem;
   background-color: ${(props) => props.theme.secondary};
 `;
 
 const Img = styled.img`
   display: flex;
-  width: 100%;
-  min-height: 250px;
+  width: auto;
+  height: auto;
+  max-height: 75vh;
+  width: auto;
+  max-width: 100%;
   border: 5px solid ${(props) => props.theme.quinary};
   background-color; ${(props) => props.theme.quinary};
-  margin: auto;
+  margin: 1rem 0.5rem 1rem 0;
   padding: auto;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 `;
 
 const SearchButton = styled.button`
@@ -82,14 +85,14 @@ const SearchButton = styled.button`
   justify-content: center;
   align-items: center;
   width: fit-content;
-  height: 36px;
+  height: 2rem;
   background-color: ${(props) => props.theme.primary};
   color: ${(props) => props.theme.secondary};
-  border-radius: 12px;
+  border-radius: 0.75rem;
   border: 2px solid ${(props) => props.theme.quinary};
   padding: auto;
-  margin-top: 40px;
-  margin-left: 10px;
+  margin-top: 2.5rem;
+  margin-left: 0.5rem;
   font-size: 0.6em;
   outline: none;
   cursor: pointer;
@@ -115,7 +118,7 @@ const Note = styled.p`
   text-align: flex-start;
   color: ${(props) => props.theme.primary};
   text-align: flex-start;
-  font-size: 12px;
+  font-size: 0.75rem;
   padding-top: 0;
 `;
 
@@ -123,8 +126,8 @@ const A = styled.a`
   text-align: center;
   color: ${(props) => props.theme.tertiary};
   text-decoration: none;
-  margin-bottom: 30px;
-  margin-top: 20px;
+  margin-bottom: 2rem;
+  margin-top: 1.25rem;
   &:hover {
     color: ${(props) => props.theme.quartenary};
     border: 2px solid ${(props) => props.theme.quartenary};
@@ -135,10 +138,10 @@ const A = styled.a`
 `;
 
 const EarthIcon = styled.img`
-  width: 80px;
-  height: 95px;
+  width: 5rem;
+  height: 6rem;
   opacity: 0.5;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
   cursor: pointer;
   &:hover {
     opacity: 0.95;
@@ -148,12 +151,12 @@ const EarthIcon = styled.img`
 const Iframe = styled("iframe")`
 display: flex;
   width: 100%;
-  min-height: 250px;
+  min-height: 15.625rem;
   height: auto;
-  border: 5px solid ${(props) => props.theme.quinary};
-  background-color; ${(props) => props.theme.quinary};
+  border: 0.25rem solid ${(props) => props.theme.quinary};
+  background-color: ${(props) => props.theme.quinary};
   padding: 0;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 `;
 
 export default function NasaInfos() {
@@ -189,7 +192,7 @@ export default function NasaInfos() {
     setQuery(date);
     setDate("");
   };
-
+console.log(nasaInfos)
   return (
     <>
       <PContainer>
@@ -211,16 +214,16 @@ export default function NasaInfos() {
             {nasaInfos && (
               <Card>
                 <H3>{nasaInfos.title}</H3>
-                <P>Astronomy Picture of the Day: </P>
+                <P>{nasaInfos.media_type === "video" ? "Astronomy Video of the Day:" : "Astronomy Picture of the Day:"}</P>
                 {nasaInfos.media_type === "video" ? (
                   <Iframe src={nasaInfos.url}></Iframe>
                 ) : (
                   <Img src={nasaInfos.hdurl} />
                 )}
                 <P>Date: {nasaInfos.date}</P>
-                <P>© {nasaInfos.copyright}</P>
-                <H3>Explanation:</H3>
-                <P>{nasaInfos.explanation}</P>
+                {nasaInfos.copyright && <P>© {nasaInfos.copyright}</P>}
+                {nasaInfos.explanation &&(<><H3>Explanation:</H3>
+                <P>{nasaInfos.explanation}</P></>)}
                 {nasaInfos.media_type === "video" ? (
                   <A href={nasaInfos.url} target="_blank">
                     Open picture in new Window!

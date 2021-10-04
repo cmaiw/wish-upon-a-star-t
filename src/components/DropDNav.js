@@ -6,22 +6,22 @@ export const DropButton = ({onClick}) => {
   
   const Button = styled.button`
   position: fixed;
-  top: 85px;
-  left: 5px;
+  top: 5.325rem;
+  left: 0.25rem;
     display: flex;
     align-self: flex-start;
-    width: 40px;
+    width: 2.5rem;
     height: auto;
     border: none;
     outline: none;
     background: none;
-    margin-left: 24px;
+    margin-left: 1.5rem;
     cursor: pointer;
     z-index: 5;
   `;
 
   const MenueIcon = styled.img`
-    width: 30px;
+    width: 2rem;
     height: auto;
   `;
 
@@ -34,17 +34,17 @@ return(
 export const DropDNav = ({menueIsVisible, style}) => {
   const TopNav = styled.nav`
     position: fixed;
-    top: 90px;
-    left: 25px;
+    top: 5.625rem;
+    left: 1.5rem;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 135px;
-    padding: 15px 30px 8px 80px;
-    margin: 10px 10px auto auto;
+    width: fit-content;
+    padding: 0.5rem;
+    margin: 0.625rem;
     background-color: ${(props) => props.theme.primary};
     color: ${(props) => props.theme.secondary};
-    border-radius: 12px;
+    border-radius: 0.75rem;
     border: 2px solid ${(props) => props.theme.quinary};
     z-index: 10;
   `;
@@ -56,7 +56,7 @@ export const DropDNav = ({menueIsVisible, style}) => {
     position: relative;
     width: 100%;
     top: 0;
-    left: -75px;
+    left: 0;
     color: ${(props) => props.theme.secondary};
       :hover{
         color: ${(props) => props.theme.tertiary};
@@ -64,9 +64,9 @@ export const DropDNav = ({menueIsVisible, style}) => {
   `
 
 const Icon = styled.img`
-    width: 24px;
-    height: 24px;
-    margin: 0px 20px 0px 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
   `;
 
   const NavItem = styled.div`
@@ -74,7 +74,7 @@ const Icon = styled.img`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 10px;
+    padding: 0.25rem 0;
   `;
 
   return (
