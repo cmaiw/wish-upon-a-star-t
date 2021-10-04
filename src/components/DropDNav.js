@@ -31,7 +31,7 @@ return(
   </Button>)
 }
 
-export const DropDNav = ({menueIsVisible, style}) => {
+export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
   const TopNav = styled.nav`
     position: fixed;
     top: 5.625rem;
@@ -79,19 +79,19 @@ const Icon = styled.img`
 
   return (
     <TopNav menueIsVisible={menueIsVisible} style={style}>
-          <StyledNavLink to="/">
+          <StyledNavLink to="/" onClick={onNavLinkClick}>
             <NavItem>
-              <Icon src="/images/globe.png" />
+              <Icon src="/images/globe.png"/>
               Earth
             </NavItem>
           </StyledNavLink>
-          <StyledNavLink to="/image-search">
+          <StyledNavLink to="/image-search" onClick={onNavLinkClick}>
             <NavItem>
               <Icon src="/images/telescope.png" />
               Space
             </NavItem>
           </StyledNavLink>
-          <StyledNavLink to="/about">
+          <StyledNavLink to="/about" onClick={onNavLinkClick}>
             <NavItem>
               <Icon src="/images/alien.png" />
               About
