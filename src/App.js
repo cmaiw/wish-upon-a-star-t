@@ -67,6 +67,7 @@ function App() {
   }
 
   const handleDropBtnClick = () => menueIsVisible ? setMenueIsVisible(false) : setMenueIsVisible(true)
+  const handleNavLinkClick = () => setMenueIsVisible(false)
 
   return (
     <>
@@ -84,7 +85,7 @@ function App() {
             </ThemeSwitch>
           </Container>
           <DropButton id='DropNavBtn' onClick={handleDropBtnClick}/>
-          <DropDNav id='DropNav' style={{ display: menueIsVisible ? "block" : "none" }} />
+          <DropDNav id='DropNav' style={{ display: menueIsVisible ? "block" : "none" }} onNavLinkClick={handleNavLinkClick}/>
           <Switch>
             <Route exact path="/">
               <LandingPage />
