@@ -6,8 +6,8 @@ export const DropButton = ({onClick}) => {
   
   const Button = styled.button`
   position: fixed;
-  top: 5.325rem;
-  left: 0.25rem;
+  top: 5.25rem;
+  left: -2.25rem;
     display: flex;
     align-self: flex-start;
     width: 2.5rem;
@@ -15,38 +15,72 @@ export const DropButton = ({onClick}) => {
     border: none;
     outline: none;
     background: none;
-    margin-left: 1.5rem;
+    margin-left: 3rem;
     cursor: pointer;
     z-index: 5;
+    padding: 0;
+
+    &:focus {
+      border-bottom: 2px dotted ${(props) => props.theme.quartenary};
+    }
+
+    @media only screen and (min-width: 540px){
+      left: -1.5rem;
+      width: 2.5rem;
+    }
+
+    @media only screen and (min-width: 768px){
+      top: 7.25rem;
+      left: -0.75rem;
+      width: 2.5rem;
+    }
+
+    @media only screen and (min-width: 1024px){
+      left: -0.5rem;
+    }
   `;
 
   const MenueIcon = styled.img`
-    width: 2rem;
+    margin-top: 0.25rem;
+    width: 1.5rem;
     height: auto;
+
+    @media only screen and (min-width: 768px){
+      width: 2rem;
+    }
   `;
 
 return( 
   <Button onClick={onClick}>
-    <MenueIcon src="images/menu.png" />
+    <MenueIcon src="images/menux.png" />
   </Button>)
 }
 
 export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
   const TopNav = styled.nav`
     position: fixed;
-    top: 5.625rem;
-    left: 1.5rem;
+    top: 6rem;
+    left: 0.25rem;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     width: fit-content;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0.625rem;
     background-color: ${(props) => props.theme.primary};
     color: ${(props) => props.theme.secondary};
     border-radius: 0.75rem;
-    border: 2px solid ${(props) => props.theme.quinary};
     z-index: 10;
+
+    @media only screen and (min-width: 540px){
+      top: 5.75rem;
+      left: 1rem;
+    }
+
+    @media only screen and (min-width: 768px){
+      top: 8.75rem;
+      left: 2rem;
+    }
   `;
 
   const StyledNavLink = styled(NavLink)`
@@ -58,9 +92,15 @@ export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
     top: 0;
     left: 0;
     color: ${(props) => props.theme.secondary};
-      :hover{
+
+    &:hover {
         color: ${(props) => props.theme.tertiary};
       }
+
+    &:focus {
+    border-bottom: 2px dotted ${(props) => props.theme.secondary};
+    outline: none;
+  }
   `
 
 const Icon = styled.img`
@@ -74,7 +114,7 @@ const Icon = styled.img`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
   `;
 
   return (

@@ -12,8 +12,7 @@ const PContainer = styled.div`
   height: auto;
   min-height: 100vh;
   background-color: ${(props) => props.theme.secondary};
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding: auto;
 `;
 
@@ -22,11 +21,13 @@ const CContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: space-around;
-  max-width: 90%;
   max-height: auto;
   background-color: ${(props) => props.theme.secondary};
-  margin-bottom: 2rem;
-  margin-top: 1.5rempx;
+  margin: 1rem;
+
+  @media only screen and (min-width: 48rem){
+    margin: 0 2rem;
+  }
 `;
 
 const Main = styled.main`
@@ -34,12 +35,13 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 100vw;
+  width: 100%;
   height: auto;
   min-height: 100vh;
   padding: 0;
   background-color: ${(props) => props.theme.secondary};
   color: ${(props) => props.theme.primary};
+  margin-bottom: 2rem;
 `;
 const Card = styled.div`
   display: flex;
@@ -80,8 +82,12 @@ const Form = styled.form`
   height: auto;
   justify-content: space-between;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 4.25rem;
   background-color: ${(props) => props.theme.secondary};
+
+  @media only screen and (min-width: 48rem){
+    padding-top: 8rem;
+  }
 `;
 
 const Img = styled.img`
@@ -89,23 +95,21 @@ const Img = styled.img`
   width: auto;
   height: auto;
   min-height: 35vh;
-  max-height: 55vh;
-  width: auto;
   max-width: 100%;
-  border: 5px solid ${(props) => props.theme.quinary};
   background-color: ${(props) => props.theme.quinary};
   margin: 1rem 0.5rem 0 0;
   padding: auto;
   border-radius: 0.75rem;
+
   @media only screen and (min-width: 48rem){
-    width: 75%;
-    min-height: 45vh;
+    max-height: 60vh;
+    min-width:40%;
   }
 `;
 
 const ImagePlaceholder = styled.div`
   display: flex;
-  min-height: 35vh;
+  height: 45vh;
   width: 100%;
   background-color: ${(props) => props.theme.primary};
   opacity: 0.1; 
@@ -117,7 +121,7 @@ const ImagePlaceholder = styled.div`
 
   @media only screen and (min-width: 48rem){
     width: 75%;
-    min-height: 45vh;
+    height: 55vh;
   }
 `;
 
@@ -128,20 +132,26 @@ const SearchButton = styled.button`
   justify-content: center;
   align-items: center;
   width: fit-content;
-  height: 2rem;
+  height: 2.5rem;
   background-color: ${(props) => props.theme.primary};
   color: ${(props) => props.theme.secondary};
+  border: none;
   border-radius: 0.75rem;
-  border: 2px solid ${(props) => props.theme.quinary};
   padding: auto;
   margin-top: 2.5rem;
   margin-left: 0.5rem;
-  font-size: 0.6em;
+  font-size: 0.825rem;
   outline: none;
   cursor: pointer;
   font-family: "Orbitron", sans-serif;
+
   &:hover {
-    color: ${(props) => props.theme.quartenary};
+    background-color: ${(props) => props.theme.quartenary};
+  }
+
+  &:focus {
+    border: 2px solid ${(props) => props.theme.tertiary};
+    border-radius: 0.75rem;
   }
 `
 const TextPlaceholder = styled.div`
@@ -158,8 +168,9 @@ const H3 = styled.h3`
   letter-spacing: 1px;
   padding: 1rem 0 0 0;
   margin: 0;
-  line-height: 1.5;
-`;
+  font-weight: 400;
+  font-size: 1.25rem;
+  `
 
 const P = styled.p`
   text-align: flex-start;
@@ -171,12 +182,18 @@ const P = styled.p`
   line-height: 1.5;
 `;
 
+const ShortText = styled(P)`
+white-space: pre;
+overflow: hidden;
+text-overflow: ellipsis;
+`
+
 const Note = styled.p`
   text-align: flex-start;
   color: ${(props) => props.theme.primary};
   text-align: flex-start;
-  font-size: 0.75rem;
-  padding: 1rem 0 0 0;
+  font-size: 0.625rem;
+  padding: 0.25rem 0 0 0;
   margin: 0;
   line-height: 1.5;
 `;
@@ -188,23 +205,50 @@ const A = styled.a`
   margin-bottom: 0;
   margin-top: 1.25rem;
   line-height: 1.5;
+
   &:hover {
     color: ${(props) => props.theme.quartenary};
-    border: 2px solid ${(props) => props.theme.quartenary};
-  }
-  &:active: {
+  };
+
+  &:active {
     color: ${(props) => props.theme.quinary};
-  }
+  };
+
+  &:focus {
+    border-bottom: 2px dotted ${(props) => props.theme.quartenary};
+    outline: none;
+  };
 `;
+
+const EarthLink = styled(NavLink)`
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0;
+height: auto;
+width: fit-content;
+
+&:focus {
+    border: 2px dotted ${(props) => props.theme.quartenary};
+    border-radius: 50%;
+    outline: none;
+  }
+
+&:focus {
+    border: 2px dotted ${(props) => props.theme.quartenary};
+    border-radius: 50%;
+    outline: none;
+  }
+`
 
 const EarthIcon = styled.img`
   width: 5rem;
-  height: 6rem;
-  opacity: 0.5;
-  padding-bottom: 1.25rem;
+  height: auto;
   cursor: pointer;
+  padding: 0;
+
   &:hover {
-    opacity: 0.95;
+    opacity: 0.75;
   }
 `;
 
@@ -217,6 +261,7 @@ display: flex;
   border: 0.25rem solid ${(props) => props.theme.quinary};
   background-color: ${(props) => props.theme.quinary};
   padding: 0;
+  margin-top: 0.75rem;
   border-radius: 0.75rem;
 `;
 
@@ -265,7 +310,7 @@ export default function NasaInfos() {
             <DateInput
               onChange={updateDate}
               type="date"
-              placeholder="Search by date: yyyy-mm-dd."
+              placeholder="yyyy-mm-dd"
               value={date}
             ></DateInput>
             <SearchButton type="submit">Search</SearchButton>
@@ -285,24 +330,17 @@ export default function NasaInfos() {
             <TextPlaceholder />
             <TextPlaceholder />
             <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
           </PlaceholderCard>)}
             {!isFetching && nasaInfos &&(<>
               <Card>
                 <H3>{nasaInfos.title}</H3>
-                <P>{nasaInfos.media_type === "video" ? "Astronomy Video of the Day:" : "Astronomy Picture of the Day:"}</P>
+                {!nasaInfos.title ? (nasaInfos.media_type === "video" ? <P>Astronomy Video of the Day:</P> : <P>Astronomy Picture of the Day:</P>) : null}
                 {nasaInfos.media_type === "video" ? (
                   <Iframe src={nasaInfos.url}></Iframe>
                 )
                 :(<Img src={nasaInfos.hdurl} />)}
-                <P>Date: {nasaInfos.date}</P>
-                {nasaInfos.copyright && <P>© {nasaInfos.copyright}</P>}
+                <ShortText>Date: {nasaInfos.date}</ShortText>
+                {nasaInfos.copyright && <ShortText>© {nasaInfos.copyright}</ShortText>}
                 {nasaInfos.explanation &&(<><H3>Explanation:</H3>
                 <P>{nasaInfos.explanation}</P></>)}
                 {nasaInfos.media_type === "video" ? (
@@ -314,9 +352,9 @@ export default function NasaInfos() {
                     Open picture in new Window!
                   </A>)}
               </Card>
-            <NavLink to="/">
+            <EarthLink to="/">
               <EarthIcon src="/images/globe.png" />
-            </NavLink>
+            </EarthLink>
             <P>Back to planet Earth!</P></>)}
           </Main>
         </CContainer>
