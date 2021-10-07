@@ -28,21 +28,34 @@ const ThemeSwitch = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
+  align-self: flex-start;
   width: fit-content;
-  height: 100%;
+  height: 58%;
   border: none;
   color: ${(props) => props.theme.secondary};
-  background-color: ${(props) => props.theme.quinary};
-  padding-right: 0.625rem;
-  margin: 0;
+  background-color: transparent;
+  padding: 0 0.5rem 0 0.625rem;
+  margin: 1rem 0 0 0;
   font-size: 0.8em;
+  border-radius: 45% 0 0 45%;
   outline: none;
   cursor: pointer;
-  font-family: "Orbitron", sans-serif;
-  &:hover {
     background-color: ${(props) => props.theme.tertiary};
+  
+  &:hover {
+    background-color: ${(props) => props.theme.quartenary};
     z-index: 1;
+  }
+
+  &:focus {
+    border: 2px dotted ${(props) => props.theme.secondary};
+    outline: none;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 90%;
+    border-radius: 50% 0 0 50%;
+    padding: 0 0.5rem 0 1rem;
   }
 `;
 
@@ -51,7 +64,11 @@ const ThemeImage = styled.img`
   justify-content: center;
   align-items: center;
   width: auto;
-  max-height: 2.375rem;
+  max-height: 1.5rem;
+
+  @media only screen and (min-width: 768px) {
+    max-height: 2.25rem;
+  }
 `;
 
 function App() {

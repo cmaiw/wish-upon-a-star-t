@@ -150,7 +150,8 @@ const SearchButton = styled.button`
   }
 
   &:focus {
-    outline: 2px solid ${(props) => props.theme.tertiary}
+    border: 2px solid ${(props) => props.theme.tertiary};
+    border-radius: 0.75rem;
   }
 `
 const TextPlaceholder = styled.div`
@@ -309,7 +310,7 @@ export default function NasaInfos() {
             <DateInput
               onChange={updateDate}
               type="date"
-              placeholder="Search by date: yyyy-mm-dd."
+              placeholder="yyyy-mm-dd"
               value={date}
             ></DateInput>
             <SearchButton type="submit">Search</SearchButton>

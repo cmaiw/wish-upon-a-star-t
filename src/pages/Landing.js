@@ -14,9 +14,10 @@ const LandingPBg = styled.div`
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
-    rgba(20, 45, 93, 0.9374124649859944) 100%
+    rgba(31, 34, 50, 1) 100%
   );
   padding-top: 3rem;
+  overflow: hidden;
 `;
 
 const LandingPContainer = styled.div`
@@ -71,9 +72,8 @@ const AnimationContainer = styled.div`
   width: 80%;
   align-self: flex-end;
   justify-content: center;
-  align-items: center;
-  opacity: 0.8;
-  margin-top: 5rem;
+  align-items: flex-start;
+  margin-top: 3rem;
 `;
 
 const ShootingStarImg = styled.img`
@@ -94,20 +94,28 @@ const WelcomeTxtContainer = styled.div`
   max-height: 14.375rem;
   min-width: 18.75rem;
   font-size: 1em;
-  color: whitesmoke;
-  opacity: 0.7;
+  color: ${(props) => props.theme.tertiary};
   margin: 0;
   padding: 0;
   z-index: 3;
 `;
 
+const Heading = styled.h1`
+color: ${(props) => props.theme.tertiary};
+font-size: 1.25rem;
+`;
+
+const Accent = styled.span`
+font-family: 'Lovers Quarrel', cursive;
+font-weight: 800;
+font-size: 6rem;
+`;
+
 const WelcomeTxt = styled.h2`
-  color: whitesmoke;
   margin: 0;
   padding: 0.25rem;
 `;
 const WelcomeTxt2 = styled.h4`
-  color: whitesmoke;
   margin: 0;
   padding: 0.25rem;
 `;
@@ -115,26 +123,26 @@ const WelcomeTxt2 = styled.h4`
 const TelescopeIcon = styled.img`
   width: 3.75rem;
   height: 3.75rem;
-  opacity: 0.9;
+  padding: 0.125rem;
   margin: 0.25rem;
   &:hover {
-    opacity: 1;
+    background-color: rgba(255,255,255, 0.3);
+    border-radius: 50%;
   }
 `;
 
 const AlienIcon = styled.img`
-  width: 2.5rem;
-  height: 2.5rem;
-  opacity: 0.9;
+  width: 3.75rem;
+  height: 3.75rem;
+  padding: 0.125rem;
   margin: 0.25rem;
   &:hover {
-    opacity: 1;
+    background-color: rgba(255,255,255, 0.3);
+    border-radius: 50%;
   }
 `;
 
 const WelcomeTxt3 = styled.p`
-  color: whitesmoke;
-  opacity: 0.7;
   cursor: pointer;
   margin: 0;
   padding: 0.25rem;
@@ -147,6 +155,7 @@ function LandingPage() {
         <AnimationContainer>
           <ShootingStarImg src="/images/shootingstar.png" alt="shootingstar" />
         </AnimationContainer>
+        <Heading><Accent>W</Accent>ish upon a star...</Heading>
         <WelcomeTxtContainer>
           <WelcomeTxt>Welcome Adventurer!</WelcomeTxt>
           <WelcomeTxt2>Let us discover space!</WelcomeTxt2>

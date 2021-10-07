@@ -3,43 +3,49 @@ import styled from "@emotion/styled";
 import planet from "../resources/planet.png";
 
 const Container = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
   padding: 0;
-  margin: 0;
+  margin-top: -1rem;
   position: relative;
-`;
 
-const Title = styled.h1`
-  text-align: center;
-  font-size: 1.4em;
-  color: ${(props) => props.theme.secondary};
-  text-shadow: 1px 1px 2px ${(props) => props.theme.primary};
-  padding: 0;
-  margin: 0;
-  letter-spacing: 2px;
-  font-family: "Orbitron", sans-serif;
-
-  @media only screen and (max-width: 17.5rem){
-    font-size: 0.85em;
+  @media only screen and (min-width: 768px){
+    font-size: 1.4em;
+    width: 80%;
   }
 `;
 
 const LogoIcon = styled.img`
+position: absolute;
   height: auto;
-  width: 5rem;
-  margin: 2rem 0 0 0;
+  width: 4.75rem;
   padding: 0;
+  margin: 4rem 0 0 -0.5rem;
+  /* transform: rotate(0deg); */
+
+  @media only screen and (min-width: 540px){
+    margin: 4rem 0 0 0.5rem;
+    width: 5rem;
+  }
+
+  @media only screen and (min-width: 768px){
+    margin: 7rem 0 0 0;
+    width: 6.5rem;
+  }
+
+  @media only screen and (min-width: 1024px){
+    width: 7rem;
+  }
 `;
 
-export default function Logo({ text }) {
+export default function Logo() {
   return (
     <Container>
       <LogoIcon src={planet} />
-      <Title>{(text = "Wish upon a Star")}</Title>
+      {/* <Title>Wisch upon a star...</Title> */}
     </Container>
   );
 }
