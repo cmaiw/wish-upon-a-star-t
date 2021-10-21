@@ -60,9 +60,9 @@ export default function About() {
   `;
 
   const MenueIcon = styled.img`
-    width: 3rem;
-    height: 0.75rem;
-    margin: 2px 6px 0px 6px;
+    width: 2.5rem;
+    height: auto;
+    margin: 2px 6px -17px 6px;
   `;
 
   const Link = styled.a`
@@ -88,7 +88,7 @@ export default function About() {
             <Icon src="/images/globe.png" />
             will bring you back to earth (landing page). If you want to come
             back, click me, your alien- friend. A Secret menu is hidden under
-            the three blue dots <MenueIcon src="/images/menu.png" />, to beam us
+            the three yellow dots <MenueIcon src="/images/menux.png" />, to beam us
             quick from page to page. Enjoy the Trip and come back soon my
             friend!
           </P>
@@ -117,41 +117,35 @@ export default function About() {
           Icons"
               target="_blank"
             >
-              {" "}
-              Those Icons:
-            </Link>{" "}
-          </P>
-          <P>
+              Those Icons{" "}
+            </Link>
             from:{" "}
             <Link
               href="https://www.flaticon.com/"
               title="Flaticon"
               target="_blank"
             >
-              www.flaticon.com
-            </Link>{" "}
+              www.flaticon.com{" "}
+            </Link>
+            </P>
+            <P>
             Telescope made by:{" "}
             <Link
               href="https://www.flaticon.com/authors/freepik"
               title="Freepik"
               target="_blank"
             >
-              Freepik
+              Freepik{" "}
             </Link>{" "}
-            from{" "}
+            from:{" "}
             <Link href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
             </Link>
           </P>
           <P>
-            Planet (Logo):{" "}
-            <Link
-              title="planet vector png 3"
-              href="https://pngimage.net/planet-vector-png-3/"
-              target="_blank"
-            >
-              planet vector png 3
-            </Link>
+            Planet made by: <Link href="https://www.freepik.com" title="Freepik">Freepik</Link>
+            from:{" "}
+            <Link href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</Link>
           </P>
           <P>
             Planet Earth on landingpage:{" "}
@@ -171,7 +165,7 @@ export default function About() {
             >
               Freepik
             </Link>{" "}
-            from{" "}
+            from:{" "}
             <Link
               href="https://www.flaticon.com/"
               title="Flaticon"
