@@ -14,6 +14,10 @@ const PContainer = styled.div`
   background-color: ${(props) => props.theme.secondary};
   margin: 0 auto;
   padding: auto;
+
+  @media only screen and (min-width: 48rem){
+    align-items: flex-start;
+  }
 `;
 
 const CContainer = styled.div`
@@ -55,6 +59,21 @@ const Card = styled.div`
   color: ${(props) => props.theme.primary};
   background-color: ${(props) => props.theme.secondary};
   padding-bottom: 2rem;
+
+  @media only screen and (min-width: 64rem){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 0.25rem;
+    grid-column-gap: 2rem;
+    align-items: start;
+    grid-template-areas:
+    "title explanationTitle"
+    "image explanation-1"
+    "date explanation-2"
+    "copyright explanation-3"
+    "backlink explanation-4";
+    align-content: start;
+  }
 `;
 
 const PlaceholderCard = styled.div`
@@ -73,12 +92,26 @@ font-family: "Orbitron", sans-serif;
   background-color: ${(props) => props.theme.secondary};
   padding-bottom: 2rem;
 
-`
+  @media only screen and (min-width: 64rem){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 0.25rem;
+    grid-column-gap: 2rem;
+    align-items: start;
+    grid-template-areas:
+    "title explanationTitle"
+    "image explanation-1"
+    "date explanation-2"
+    "copyright explanation-3"
+    "backlink explanation-4";
+    align-content: start;
+  }
+`;
 
 const Form = styled.form`
   display: flex;
   flex-direction: row;
-  min-width: 100%;
+  width: 100%;
   height: auto;
   justify-content: space-between;
   align-items: center;
@@ -92,39 +125,40 @@ const Form = styled.form`
 
 const Img = styled.img`
   display: flex;
-  width: auto;
+  width: 100%;
   height: auto;
-  min-height: 35vh;
-  max-width: 100%;
   background-color: ${(props) => props.theme.quinary};
   margin: 1rem 0.5rem 0 0;
   padding: auto;
   border-radius: 0.75rem;
-
-  @media only screen and (min-width: 48rem){
-    max-height: 60vh;
-    min-width:40%;
-  }
+  grid-area: image;
 `;
 
-const ImagePlaceholder = styled.div`
-  display: flex;
-  height: 45vh;
+const ArticlePlaceholder = styled.div`
+display: flex;
+height: 45vh;
+width: 100%;
+background-color: ${(props) => props.theme.primary};
+opacity: 0.1; 
+margin: 1rem 0.5rem 1rem 0;
+justify-content: center;
+align-items: center;
+padding: auto;
+border-radius: 0.75rem;
+
+@media only screen and (min-width: 48rem){
   width: 100%;
-  background-color: ${(props) => props.theme.primary};
-  opacity: 0.1; 
-  margin: 1rem 0.5rem 1rem 0;
-  justify-content: center;
-  align-items: center;
-  padding: auto;
-  border-radius: 0.75rem;
-
-  @media only screen and (min-width: 48rem){
-    width: 75%;
-    height: 55vh;
-  }
+  height: 55vh;
+}
 `;
 
+const ImagePlaceholder = styled(ArticlePlaceholder)`
+  grid-area: image;
+`;
+
+const ExplanationPlaceholder = styled(ArticlePlaceholder)`
+grid-area: explanation-1;
+`
 
 const SearchButton = styled.button`
   display: flex;
@@ -159,11 +193,29 @@ width: 100%;
 min-height: 1.5rem;
 background-color: ${(props) => props.theme.primary};
 border-radius: 0.75rem;
-margin: 0.5rem 0;
+margin: 1rem 0 0 0;
 opacity: 0.1;
-`
+`;
+const FirstColumnHeadlinePlaceholder = styled(TextPlaceholder)`
+grid-area: title;
+`;
+const SecondColumnHeadlinePlaceholder = styled(TextPlaceholder)`
+grid-area: explanationTitle;
+`;
+const FirstColumnCopyrightPlaceholder = styled(TextPlaceholder)`
+grid-area: copyright;
+`;
+const FirstColumnDatePlaceholder = styled(TextPlaceholder)`
+grid-area: date;
+`;
+const SecondColumnTextPlaceholder = styled(TextPlaceholder)`
+grid-area: explanation-3;
+`;
+const SecondColumnExplanationPlaceholder = styled(TextPlaceholder)`
+grid-area: explanation-2;
+`;
 const H3 = styled.h3`
-  text-align: start;
+  text-align: left;
   color: ${(props) => props.theme.primary};
   letter-spacing: 1px;
   padding: 1rem 0 0 0;
@@ -171,22 +223,46 @@ const H3 = styled.h3`
   font-weight: 400;
   font-size: 1.25rem;
   `
+  const FirstColumnH3 = styled(H3)`
+  grid-area: title;
+  `;
+  const SecondColumnH3 = styled(H3)`
+  grid-area: explanationTitle;
+  `;
 
 const P = styled.p`
   text-align: flex-start;
   color: ${(props) => props.theme.primary};
-  text-align: flex-start;
+  text-align: left;
   font-size: 1rem;
   padding: 1rem 0 0 0;
   margin: 0;
   line-height: 1.5;
 `;
+const FirstColumnP = styled(P)`
+  grid-row-start: date;
+  grid-row-end: backlink;
+`;
+
+const SecondColumnP = styled(P)`
+grid-row-start: explanation-1;
+  grid-row-end: explanation-4;
+
+@media only screen and (min-width: 64rem) {
+  margin-top: -0.25rem;
+};
+`;
+
 
 const ShortText = styled(P)`
-white-space: pre;
 overflow: hidden;
 text-overflow: ellipsis;
-`
+grid-area: date;
+`;
+
+const CopyrightText = styled(ShortText)`
+grid-area: copyright;
+`;
 
 const Note = styled.p`
   text-align: flex-start;
@@ -205,6 +281,7 @@ const A = styled.a`
   margin-bottom: 0;
   margin-top: 1.25rem;
   line-height: 1.5;
+  grid-area: backlink;
 
   &:hover {
     color: ${(props) => props.theme.quartenary};
@@ -232,13 +309,13 @@ width: fit-content;
     border: 2px dotted ${(props) => props.theme.quartenary};
     border-radius: 50%;
     outline: none;
-  }
+  };
 
 &:focus {
     border: 2px dotted ${(props) => props.theme.quartenary};
     border-radius: 50%;
     outline: none;
-  }
+  };
 `
 
 const EarthIcon = styled.img`
@@ -249,20 +326,19 @@ const EarthIcon = styled.img`
 
   &:hover {
     opacity: 0.75;
-  }
+  };
 `;
 
 const Iframe = styled("iframe")`
-display: flex;
+ display: flex;
   width: 100%;
-  min-height: 15.625rem;
-  max-width: 100%;
   height: auto;
-  border: 0.25rem solid ${(props) => props.theme.quinary};
+  max-width: 100%;
   background-color: ${(props) => props.theme.quinary};
-  padding: 0;
-  margin-top: 0.75rem;
+  margin: 1.25rem 0.5rem 0 0;
+  padding: auto;
   border-radius: 0.75rem;
+  grid-area: image;
 `;
 
 export default function NasaInfos() {
@@ -320,29 +396,29 @@ export default function NasaInfos() {
             today.
           </Note>
           <Main>
-            {isFetching && (<PlaceholderCard>
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
+            {isFetching && (<><PlaceholderCard>
+            <FirstColumnHeadlinePlaceholder />
             <ImagePlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-            <TextPlaceholder />
-          </PlaceholderCard>)}
+            <FirstColumnDatePlaceholder />
+            <FirstColumnCopyrightPlaceholder />
+            <SecondColumnHeadlinePlaceholder />
+            <ExplanationPlaceholder />
+            <SecondColumnExplanationPlaceholder />
+            <SecondColumnTextPlaceholder />
+
+          </PlaceholderCard></>)}
             {!isFetching && nasaInfos &&(<>
               <Card>
-                <H3>{nasaInfos.title}</H3>
-                {!nasaInfos.title ? (nasaInfos.media_type === "video" ? <P>Astronomy Video of the Day:</P> : <P>Astronomy Picture of the Day:</P>) : null}
+                <FirstColumnH3>{nasaInfos.title}</FirstColumnH3>
+                {!nasaInfos.title ? (nasaInfos.media_type === "video" ? <FirstColumnP>Astronomy Video of the Day:</FirstColumnP> : <FirstColumnP>Astronomy Picture of the Day:</FirstColumnP>) : null}
                 {nasaInfos.media_type === "video" ? (
                   <Iframe src={nasaInfos.url}></Iframe>
                 )
                 :(<Img src={nasaInfos.hdurl} />)}
                 <ShortText>Date: {nasaInfos.date}</ShortText>
-                {nasaInfos.copyright && <ShortText>© {nasaInfos.copyright}</ShortText>}
-                {nasaInfos.explanation &&(<><H3>Explanation:</H3>
-                <P>{nasaInfos.explanation}</P></>)}
+                {nasaInfos.copyright && <CopyrightText>© {nasaInfos.copyright}</CopyrightText>}
+                {nasaInfos.explanation &&(<><SecondColumnH3>Explanation:</SecondColumnH3>
+                <SecondColumnP>{nasaInfos.explanation}</SecondColumnP></>)}
                 {nasaInfos.media_type === "video" ? (
                   <A href={nasaInfos.url} target="_blank">
                     Open picture in new Window!
