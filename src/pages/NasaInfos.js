@@ -9,11 +9,10 @@ const PContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: auto;
   min-height: 100vh;
   background-color: ${(props) => props.theme.secondary};
-  margin: 0 auto;
-  padding: auto;
+  margin: 0;
+  padding: 0;
 
   @media only screen and (min-width: 48rem){
     align-items: flex-start;
@@ -27,10 +26,11 @@ const CContainer = styled.div`
   align-items: space-around;
   max-height: auto;
   background-color: ${(props) => props.theme.secondary};
-  margin: 1rem;
+  padding: 1rem;
+  width: 100%;
 
   @media only screen and (min-width: 48rem){
-    margin: 0 2rem;
+    padding: 1rem 2rem;
   }
 `;
 
@@ -50,7 +50,7 @@ const Main = styled.main`
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 100%;
+  width: 100%;
   justify-content: flex-start;
   align-items: flex-start;
   font-family: "Orbitron", sans-serif;
@@ -79,15 +79,13 @@ const Card = styled.div`
 const PlaceholderCard = styled.div`
 display: flex;
 flex-direction: column;
-height: 100vh;
-width: 90vw;
-justify-content: flex-start;
+width: 100%;
+flex-grow: 1;
+justify-content: center;
 align-items: flex-start;
 margin: 0;
 padding: 0;
-font-family: "Orbitron", sans-serif;
   text-align: left;
-  font-size: 1.2rem;
   color: ${(props) => props.theme.primary};
   background-color: ${(props) => props.theme.secondary};
   padding-bottom: 2rem;
@@ -99,14 +97,22 @@ font-family: "Orbitron", sans-serif;
     grid-column-gap: 2rem;
     align-items: start;
     grid-template-areas:
-    "title explanationTitle"
-    "image explanation-1"
-    "date explanation-2"
-    "copyright explanation-3"
-    "backlink explanation-4";
+    "first second";
     align-content: start;
   }
 `;
+
+const ColumnPlaceholder = styled.div`
+width: 100%;
+height: auto;
+`
+
+const FirstColumnPlaceholder=styled(ColumnPlaceholder)`
+grid-area: first;
+`
+const SecondColumnPlaceholder=styled(ColumnPlaceholder)`
+grid-area: second;
+`
 
 const Form = styled.form`
   display: flex;
@@ -148,17 +154,9 @@ border-radius: 0.75rem;
 
 @media only screen and (min-width: 48rem){
   width: 100%;
-  height: 55vh;
+  height: 37vh;
 }
 `;
-
-const ImagePlaceholder = styled(ArticlePlaceholder)`
-  grid-area: image;
-`;
-
-const ExplanationPlaceholder = styled(ArticlePlaceholder)`
-grid-area: explanation-1;
-`
 
 const SearchButton = styled.button`
   display: flex;
@@ -195,24 +193,6 @@ background-color: ${(props) => props.theme.primary};
 border-radius: 0.75rem;
 margin: 1rem 0 0 0;
 opacity: 0.1;
-`;
-const FirstColumnHeadlinePlaceholder = styled(TextPlaceholder)`
-grid-area: title;
-`;
-const SecondColumnHeadlinePlaceholder = styled(TextPlaceholder)`
-grid-area: explanationTitle;
-`;
-const FirstColumnCopyrightPlaceholder = styled(TextPlaceholder)`
-grid-area: copyright;
-`;
-const FirstColumnDatePlaceholder = styled(TextPlaceholder)`
-grid-area: date;
-`;
-const SecondColumnTextPlaceholder = styled(TextPlaceholder)`
-grid-area: explanation-3;
-`;
-const SecondColumnExplanationPlaceholder = styled(TextPlaceholder)`
-grid-area: explanation-2;
 `;
 const H3 = styled.h3`
   text-align: left;
@@ -397,16 +377,30 @@ export default function NasaInfos() {
           </Note>
           <Main>
             {isFetching && (<><PlaceholderCard>
-            <FirstColumnHeadlinePlaceholder />
-            <ImagePlaceholder />
-            <FirstColumnDatePlaceholder />
-            <FirstColumnCopyrightPlaceholder />
-            <SecondColumnHeadlinePlaceholder />
-            <ExplanationPlaceholder />
-            <SecondColumnExplanationPlaceholder />
-            <SecondColumnTextPlaceholder />
-
-          </PlaceholderCard></>)}
+              <FirstColumnPlaceholder>
+            <TextPlaceholder />
+            <ArticlePlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            </FirstColumnPlaceholder>
+            <SecondColumnPlaceholder>
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            <TextPlaceholder />
+            </SecondColumnPlaceholder>
+            </PlaceholderCard></>)}
             {!isFetching && nasaInfos &&(<>
               <Card>
                 <FirstColumnH3>{nasaInfos.title}</FirstColumnH3>
