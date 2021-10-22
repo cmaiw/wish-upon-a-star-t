@@ -206,9 +206,6 @@ const H3 = styled.h3`
   const FirstColumnH3 = styled(H3)`
   grid-area: title;
   `;
-  const SecondColumnH3 = styled(H3)`
-  grid-area: explanationTitle;
-  `;
 
 const P = styled.p`
   text-align: flex-start;
