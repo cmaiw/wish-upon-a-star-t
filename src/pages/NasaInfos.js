@@ -411,7 +411,7 @@ export default function NasaInfos() {
                 :(<Img src={nasaInfos.hdurl} />)}
                 <ShortText>Date: {nasaInfos.date}</ShortText>
                 {nasaInfos.copyright && <CopyrightText>© {nasaInfos.copyright}</CopyrightText>}
-                {nasaInfos.explanation &&(<><SecondColumnH3>Explanation:</SecondColumnH3>
+                {nasaInfos.explanation &&(<>
                 <SecondColumnP>{nasaInfos.explanation}</SecondColumnP></>)}
                 {nasaInfos.media_type === "video" ? (
                   <A href={nasaInfos.url} target="_blank">

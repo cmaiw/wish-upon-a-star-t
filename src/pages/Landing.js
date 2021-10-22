@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
 import { NavLink } from "react-router-dom";
+import {shake} from "./../utils/animations";
 
 const LandingPBg = styled.div`
   display: flex;
@@ -47,18 +48,18 @@ const EarthImg = styled.img`
 
 const move = keyframes`
   0% {
-    transform: translate(10rem, -4rem);
+    transform: translate(10rem, -5rem);
   }
   25% {
-    transform: translate(7.5rem, -3rem);
+    transform: translate(7.5rem, -3.75rem);
   }
 
   50% {
-    transform: translate(5rem, -2rem);
+    transform: translate(5rem, -2.5rem);
   }
 
   75% {
-    transform: translate(2.5px, -1rem);
+    transform: translate(2.5px, -1.25rem);
   }
  
   100% {
@@ -81,7 +82,7 @@ const ShootingStarImg = styled.img`
   height: auto;
   position: relative;
   width: 80%;
-  animation: ${move} 0.25s ease-in;
+  animation: ${move} 0.5s ease-in;
   margin-top: 0;
 `;
 
@@ -136,6 +137,9 @@ const AlienIcon = styled.img`
   height: 3.75rem;
   padding: 0.125rem;
   margin: 0.25rem;
+  animation: ${shake} 5s; 
+    animation-iteration-count:infinite;
+    animation-direction: alternate-reverse;
   &:hover {
     background-color: rgba(255,255,255, 0.3);
     border-radius: 50%;
