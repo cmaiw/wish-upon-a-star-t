@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
+import {shake} from "./../utils/animations";
 
 export default function About() {
   const PageContainer = styled.div`
@@ -47,10 +48,13 @@ export default function About() {
   `;
 
   const AlienIcon = styled.img`
-    width: 3rem;
-    height:3rem;
-    margin: 2rem 0.75rem;
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem 0.75rem;
     align-self: center;
+    animation: ${shake} 5s; 
+    animation-iteration-count:infinite;
+    animation-direction: alternate-reverse;
   `;
 
   const Icon = styled.img`

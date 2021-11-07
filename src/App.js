@@ -72,7 +72,7 @@ const ThemeImage = styled.img`
 `;
 
 function App() {
-  const [theme, setTheme] = React.useState(themes.default, themes.light);
+  const [theme, setTheme] = React.useState(themes.default);
   const [menueIsVisible, setMenueIsVisible] = React.useState(false)
 
   const handleClick = () => {

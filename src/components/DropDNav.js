@@ -73,13 +73,13 @@ export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
     z-index: 10;
 
     @media only screen and (min-width: 540px){
-      top: 5.75rem;
-      left: 1rem;
+      top: 6.25rem;
+      left: 0.325rem;
     }
 
     @media only screen and (min-width: 768px){
       top: 8.75rem;
-      left: 2rem;
+      left: 1.25rem;
     }
   `;
 
