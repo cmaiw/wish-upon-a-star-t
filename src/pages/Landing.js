@@ -31,6 +31,11 @@ const LandingPContainer = styled.div`
   min-height: 41.875rem;
   overflow: hidden;
   margin-top: 5rem;
+
+  @media only screen and (min-width: 50rem){
+    max-width: 30rem;
+    min-height: 53rem;
+    }
 `;
 
 const EarthImg = styled.img`
@@ -77,12 +82,13 @@ const AnimationContainer = styled.div`
   align-items: flex-start;
   margin-top: 6rem;
 
-  @media only screen and (min-width: 48rem){
-    margin-top: 0rem;
+  @media only screen and (min-width: 23.4rem){
+    margin-top: 2rem;
     }
 
-  @media only screen and (min-width: 64rem){
-    margin-top: 3rem;
+  @media only screen and (min-width: 48rem){
+    margin-top: 0;
+    width: 100%;
     }
 `;
 
@@ -109,8 +115,13 @@ const WelcomeTxtContainer = styled.div`
   padding: 0;
   z-index: 3;
 
-  @media only screen and (min-width: 48rem){
+  @media only screen and (min-width: 23.4rem){
   font-size: 1rem;
+  max-height: 14.375rem;
+    }
+
+  @media only screen and (min-width: 48rem){
+  font-size: 1.25rem;
   max-height: 14.375rem;
     }
 `;
@@ -120,7 +131,7 @@ color: ${(props) => props.theme.tertiary};
 font-size: 1rem;
 
 @media only screen and (min-width: 48rem){
-  font-size: 1.5rem;
+  font-size: 2rem;
     }
 `;
 
@@ -150,8 +161,8 @@ const NavIcon = styled.img`
   }
   @media only screen and (min-width: 48rem){
     width: 3.75rem;
-  height: 3.75rem;
-  padding: 0.25rem;
+    height: 3.75rem;
+    padding: 0.25rem;
     }
 
 `;
