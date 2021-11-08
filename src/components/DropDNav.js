@@ -42,11 +42,11 @@ export const DropButton = ({onClick}) => {
 
   const MenueIcon = styled.img`
     margin-top: 0.25rem;
-    width: 1.5rem;
+    width: 2rem;
     height: auto;
 
     @media only screen and (min-width: 768px){
-      width: 2rem;
+      width: 3rem;
     }
   `;
 
@@ -59,8 +59,8 @@ return(
 export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
   const TopNav = styled.nav`
     position: fixed;
-    top: 6rem;
-    left: 0.25rem;
+    top: 6.5rem;
+    left: 0;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -73,13 +73,13 @@ export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
     z-index: 10;
 
     @media only screen and (min-width: 33.75rem){
-      top: 6.25rem;
+      top: 6.5rem;
       left: 0.325rem;
     }
 
     @media only screen and (min-width: 48rem){
-      top: 8.75rem;
-      left: 1.25rem;
+      top: 9.25rem;
+      left: 1.5rem;
     }
   `;
 

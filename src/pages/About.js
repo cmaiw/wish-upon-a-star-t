@@ -45,6 +45,7 @@ export default function About() {
     color: ${(props) => props.theme.primary};
     margin-bottom: 0.5rem;
     padding: 3px;
+    line-height: 2;
   `;
 
   const AlienIcon = styled.img`
@@ -85,20 +86,21 @@ export default function About() {
           <H3>Hello Adventurer! Nice to meet you!</H3>
           <P>Are you ready to discover space with me? Yes? Nice.</P>
           <P>
-            Click on <Icon src="/images/telescope.png" /> and I will take you
-            with me to space (image-search). You can discover NASAs beautiful
-            Astronomy Picture of the Day and their database with daily pictures
-            since 2015-01-01. A click on the globe{" "}
-            <Icon src="/images/globe.png" />
+            Click on <Icon src="/images/gallery.png" alt="gallery-icon"/> or <Icon src="/images/telescope.png" alt="telescope-icon"/> and I will take you
+            with me to space (gallery or image-search). You can discover NASAs beautiful
+            Astronomy Pictures of the Day and their database with daily pictures
+            since 2015-01-01 in the gallery or detail page with image search. In the Gallery, a click on
+            the little <Icon src="/images/rocket.png" alt="rocket-icon"/> in the bottom right corner of an image will take you to the detail page. A click on the globe{" "}
+            <Icon src="/images/globe.png" alt="earth-icon"/>
             will bring you back to earth (landing page). If you want to come
             back, click me, your alien- friend. A Secret menu is hidden under
-            the three yellow dots <MenueIcon src="/images/menux.png" />, to beam us
+            the three yellow dots <MenueIcon src="/images/menux.png" alt="earth-icon" />, to beam us
             quick from page to page. Enjoy the Trip and come back soon my
             friend!
           </P>
           <P>
             You love a lighter background? Click
-            <Icon src="/images/sun-moon-icon.png" /> and I will change the theme
+            <Icon src="/images/sun-moon-icon.png" alt="theme-switch-icon"/> and I will change the theme
             for you.
           </P>
           <P>Oh...and...do not forget to make a whish on the shooting star.</P>
@@ -122,6 +124,42 @@ export default function About() {
               target="_blank"
             >
               Those Icons{" "}
+            </Link>
+            from:{" "}
+            <Link
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              target="_blank"
+            >
+              www.flaticon.com{" "}
+            </Link>
+            </P>
+          <P>
+            Rocket: made by:{" "}
+            <Link
+              href="https://www.flaticon.com/authors/freepik"
+              title="Freepik"
+              target="_blank"
+            >
+              Freepik{" "}
+            </Link>
+            from:{" "}
+            <Link
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              target="_blank"
+            >
+              www.flaticon.com{" "}
+            </Link>
+            </P>
+          <P>
+            Gallery: made by:{" "}
+            <Link
+              href="https://www.flaticon.com/authors/kiranshastry"
+              title="Kiranshastry"
+              target="_blank"
+            >
+              Kiranshastry{" "}
             </Link>
             from:{" "}
             <Link
