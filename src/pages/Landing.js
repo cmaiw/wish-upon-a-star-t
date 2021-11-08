@@ -36,13 +36,14 @@ const LandingPContainer = styled.div`
 const EarthImg = styled.img`
   display: flex;
   height: auto;
-  width: 75%;
+  width: 100%;
   opacity: 0.6;
   position: fixed;
   bottom: 0;
 
   @media only screen and (min-width: 50rem){
     bottom: -1.25rem;
+    width: 75%;
   }
 `;
 
@@ -74,7 +75,15 @@ const AnimationContainer = styled.div`
   align-self: flex-end;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 3rem;
+  margin-top: 6rem;
+
+  @media only screen and (min-width: 48rem){
+    margin-top: 0rem;
+    }
+
+  @media only screen and (min-width: 64rem){
+    margin-top: 3rem;
+    }
 `;
 
 const ShootingStarImg = styled.img`
@@ -92,44 +101,59 @@ const WelcomeTxtContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  max-height: 14.375rem;
+  max-height: 10.375rem;
   min-width: 18.75rem;
-  font-size: 1em;
+  font-size: 0.75rem;
   color: ${(props) => props.theme.tertiary};
   margin: 0;
   padding: 0;
   z-index: 3;
+
+  @media only screen and (min-width: 48rem){
+  font-size: 1rem;
+  max-height: 14.375rem;
+    }
 `;
 
 const Heading = styled.h1`
 color: ${(props) => props.theme.tertiary};
-font-size: 1.25rem;
+font-size: 1rem;
+
+@media only screen and (min-width: 48rem){
+  font-size: 1.5rem;
+    }
 `;
 
 const Accent = styled.span`
 font-family: 'Lovers Quarrel', cursive;
 font-weight: 800;
-font-size: 6rem;
+font-size: 3rem;
+
+@media only screen and (min-width: 48rem){
+  font-size: 6rem;
+    }
 `;
 
-const WelcomeTxt = styled.h2`
+const WelcomeTxt = styled.p`
   margin: 0;
   padding: 0.25rem;
 `;
-const WelcomeTxt2 = styled.h4`
-  margin: 0;
-  padding: 0.25rem;
-`;
 
-const TelescopeIcon = styled.img`
-  width: 3.75rem;
-  height: 3.75rem;
+const NavIcon = styled.img`
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0.125rem;
   margin: 0.25rem;
   &:hover {
     background-color: rgba(255,255,255, 0.3);
     border-radius: 50%;
   }
+  @media only screen and (min-width: 48rem){
+    width: 3.75rem;
+  height: 3.75rem;
+  padding: 0.25rem;
+    }
+
 `;
 
 const AlienIcon = styled.img`
@@ -146,12 +170,6 @@ const AlienIcon = styled.img`
   }
 `;
 
-const WelcomeTxt3 = styled.p`
-  cursor: pointer;
-  margin: 0;
-  padding: 0.25rem;
-`;
-
 function LandingPage() {
   return (
     <LandingPBg>
@@ -161,16 +179,19 @@ function LandingPage() {
         </AnimationContainer>
         <Heading><Accent>W</Accent>ish upon a star...</Heading>
         <WelcomeTxtContainer>
-          <WelcomeTxt>Welcome Adventurer!</WelcomeTxt>
-          <WelcomeTxt2>Let us discover space!</WelcomeTxt2>
-          <NavLink to="/image-search">
-            <TelescopeIcon src="/images/telescope.png" alt="telescope-icon" />
+          <WelcomeTxt>Welcome Adventurer, </WelcomeTxt>
+          <WelcomeTxt>Let us discover space!</WelcomeTxt>
+          <NavLink to="/gallery">
+            <NavIcon src="/images/gallery.png" alt="gallery-icon" />
           </NavLink>
-          <WelcomeTxt3>Go to space!</WelcomeTxt3>
+          <NavLink to="/image-search">
+            <NavIcon src="/images/telescope.png" alt="telescope-icon" />
+          </NavLink>
+          <WelcomeTxt>Go to space!</WelcomeTxt>
           <NavLink to="/About">
             <AlienIcon src="/images/alien.png" alt="alien-icon" />
           </NavLink>
-          <WelcomeTxt3>First Time here? Click the Alien!</WelcomeTxt3>
+          <WelcomeTxt>First Time here? Click the Alien!</WelcomeTxt>
         </WelcomeTxtContainer>
         <EarthImg
           src="/images/earth_glowing.png"

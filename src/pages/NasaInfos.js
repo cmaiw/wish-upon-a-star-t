@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import DateInput from "../components/DateInput";
-import { NavLink } from "react-router-dom";
+import { SearchButton } from "../components/SearchButton"
+import { NavLink, useParams } from "react-router-dom";
 
 const PContainer = styled.div`
   display: flex;
@@ -158,34 +159,6 @@ border-radius: 0.75rem;
 }
 `;
 
-const SearchButton = styled.button`
-  display: flex;
-  align-self: flex-start;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  height: 2.5rem;
-  background-color: ${(props) => props.theme.primary};
-  color: ${(props) => props.theme.secondary};
-  border: none;
-  border-radius: 0.75rem;
-  padding: auto;
-  margin-top: 2.5rem;
-  margin-left: 0.5rem;
-  font-size: 0.825rem;
-  outline: none;
-  cursor: pointer;
-  font-family: "Orbitron", sans-serif;
-
-  &:hover {
-    background-color: ${(props) => props.theme.quartenary};
-  }
-
-  &:focus {
-    border: 2px solid ${(props) => props.theme.tertiary};
-    border-radius: 0.75rem;
-  }
-`
 const TextPlaceholder = styled.div`
 width: 100%;
 min-height: 1.5rem;
@@ -323,15 +296,14 @@ export default function NasaInfos() {
   const [date, setDate] = React.useState("");
   const [query, setQuery] = React.useState("");
   // eslint-disable-next-line no-unused-vars
-  const [isFetching, setIsFetching] = React.useState(true)
-
-  
+  const [isFetching, setIsFetching] = React.useState(true);
+  const {entryDate} = useParams();
   
   React.useEffect(() => {
     async function getNasaDatabyDate() {
       const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
       const response = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}&date=${query}`
+        `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}&date=${query || entryDate || ''}`
       );
       const data = await response.json();
       return data;
@@ -344,7 +316,7 @@ export default function NasaInfos() {
       setIsFetching(false);
     }
     refreshNasa();
-  }, [query]);
+  }, [query, entryDate]);
 
   const updateDate = (e) => {
     setDate(e.target.value);
