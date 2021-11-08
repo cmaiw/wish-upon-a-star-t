@@ -7,11 +7,15 @@ const DateInput = styled.input`
   border: none;
   padding: 0.5rem;
   color: ${(props) => props.theme.secondary};
-  margin-top: 2.5rem;
+  margin: 2.5rem 0.5rem 0 0;
   outline: none;
   font-family: "Orbitron", sans-serif;
-  font-size: 0.825rem;
+  font-size: 0.625rem;
   background: ${(props) => props.theme.primary};
+
+  @media only screen and (min-width: 48rem){
+    font-size: 0.825rem;
+  }
 
   &::-webkit-calendar-picker-indicator { 
     background-color: ${(props) => props.theme.tertiary}; 

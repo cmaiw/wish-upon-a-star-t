@@ -72,12 +72,12 @@ export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
     border-radius: 0.75rem;
     z-index: 10;
 
-    @media only screen and (min-width: 540px){
+    @media only screen and (min-width: 33.75rem){
       top: 6.25rem;
       left: 0.325rem;
     }
 
-    @media only screen and (min-width: 768px){
+    @media only screen and (min-width: 48rem){
       top: 8.75rem;
       left: 1.25rem;
     }
@@ -123,6 +123,12 @@ const Icon = styled.img`
             <NavItem>
               <Icon src="/images/globe.png"/>
               Earth
+            </NavItem>
+          </StyledNavLink>
+          <StyledNavLink to="/gallery" onClick={onNavLinkClick}>
+            <NavItem>
+              <Icon src="/images/gallery.png"/>
+              Gallery
             </NavItem>
           </StyledNavLink>
           <StyledNavLink to="/image-search" onClick={onNavLinkClick}>

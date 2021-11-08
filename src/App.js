@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import About from "./pages/About";
 import { DropDNav, DropButton } from "./components/DropDNav";
+import RandomGallery from "./pages/RandomGallery"
 
 const Container = styled.div`
   display: flex;
@@ -22,6 +23,7 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 20;
 `;
 
 const ThemeSwitch = styled.button`
@@ -40,11 +42,10 @@ const ThemeSwitch = styled.button`
   border-radius: 45% 0 0 45%;
   outline: none;
   cursor: pointer;
-    background-color: ${(props) => props.theme.tertiary};
+  background-color: ${(props) => props.theme.tertiary};
   
   &:hover {
     background-color: ${(props) => props.theme.quartenary};
-    z-index: 1;
   }
 
   &:focus {
@@ -107,7 +108,13 @@ function App() {
             <Route exact path="/">
               <LandingPage />
             </Route>
+            <Route exact path="/gallery">
+             <RandomGallery />
+            </Route>
             <Route exact path="/image-search">
+              <NasaInfos />
+            </Route>
+            <Route exact path="/image-search/:entryDate">
               <NasaInfos />
             </Route>
             <Route exact path="/about">
