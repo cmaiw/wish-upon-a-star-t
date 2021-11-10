@@ -52,7 +52,7 @@ export const DropButton = ({onClick}) => {
 
 return( 
   <Button onClick={onClick}>
-    <MenueIcon src="images/menux.png" />
+    <MenueIcon src="/images/menux.png" />
   </Button>)
 }
 
