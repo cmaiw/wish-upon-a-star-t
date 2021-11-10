@@ -195,9 +195,9 @@ export default function NasaInfos() {
            <LoadingPlaceholderBlockBig />
         </>
         )}
-        {!isFetching && nasaInfos.length > 0 && nasaInfos.map((item) => item.hdurl 
+        {!isFetching && nasaInfos.length > 0 && nasaInfos.map((item) => item.media_type === 'image' 
          ? <SpaceImageWrapper key={item.date}>
-             <SpaceImage src={item.hdurl} alt={item.title} />
+             <SpaceImage src={item.url} alt={item.title} />
              <DetailPageButton onClick={()=> history.push(`/detail-page/${item.date}`)}>
                  details: <RocketIcon src="/images/rocket.png" />
                  </DetailPageButton>

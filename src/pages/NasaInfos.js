@@ -377,14 +377,14 @@ export default function NasaInfos() {
                 {nasaInfos.media_type === "video" ? (
                   <Iframe src={nasaInfos.url}></Iframe>
                 )
-                :(<Img src={nasaInfos.hdurl} />)}
+                :(<Img src={nasaInfos.url} />)}
                 <ShortText>Date: {nasaInfos.date}</ShortText>
                 {nasaInfos.copyright && <CopyrightText>© {nasaInfos.copyright}</CopyrightText>}
                 {nasaInfos.explanation &&(<>
                 <SecondColumnP>{nasaInfos.explanation}</SecondColumnP></>)}
                 {nasaInfos.media_type === "video" ? (
                   <A href={nasaInfos.url} target="_blank">
-                    Open picture in new Window!
+                    Open video in new Window!
                   </A>
                 ) : (
                   <A href={nasaInfos.hdurl} target="_blank">
