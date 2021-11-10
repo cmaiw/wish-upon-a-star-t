@@ -198,13 +198,13 @@ export default function NasaInfos() {
         {!isFetching && nasaInfos.length > 0 && nasaInfos.map((item) => item.hdurl 
          ? <SpaceImageWrapper key={item.date}>
              <SpaceImage src={item.hdurl} alt={item.title} />
-             <DetailPageButton onClick={()=> history.push(`/image-search/${item.date}`)}>
+             <DetailPageButton onClick={()=> history.push(`/detail-page/${item.date}`)}>
                  details: <RocketIcon src="/images/rocket.png" />
                  </DetailPageButton>
              </SpaceImageWrapper>
              : item.media_type === 'video'
-             ? <SpaceImageWrapper key={item.date} onClick={()=> history.push(`/image-search/${item.date}`)}>
-                 <SpaceVideo src={item.url}/><DetailPageButton onClick={()=> history.push(`/image-search/${item.date}`)}>
+             ? <SpaceImageWrapper key={item.date}>
+                 <SpaceVideo src={item.url}/><DetailPageButton onClick={()=> history.push(`/detail-page/${item.date}`)}>
                      details: <RocketIcon src="/images/rocket.png" />
                      </DetailPageButton>
                      </SpaceImageWrapper>
