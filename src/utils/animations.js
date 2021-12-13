@@ -13,3 +13,16 @@ export const shake = keyframes`
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 `
+
+export const fadeIn = keyframes`
+
+  0% {opacity:0;}
+  100% {opacity:1;}
+
+`
+
+export const fadeOut = keyframes`
+
+  0% {opacity:0.5;}
+  100% {opacity:0;}
+`
