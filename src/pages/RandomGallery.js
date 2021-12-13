@@ -171,6 +171,11 @@ export default function NasaInfos() {
       e.preventDefault();
       setQuery(`&start_date=${startDate}&end_date=${endDate}`)
     };
+
+    const handleClick = (date) => {
+     history.push(`/detail-page/${date}`);
+      window.scroll(0,0)
+    }
     
     return (
     <PContainer>
@@ -205,13 +210,14 @@ export default function NasaInfos() {
         <GalleryContainer> {nasaInfos.length > 0 && nasaInfos.map((item) => item.media_type === 'image' 
          ? <SpaceImageWrapper key={item.date}>
              <SpaceImage src={item.url} alt={item.title} />
-             <DetailPageButton onClick={()=> history.push(`/detail-page/${item.date}`)} isFetching={isFetching}>
+             <DetailPageButton 
+             onClick={() => handleClick(item.date)}>
                  details: <RocketIcon src="/images/rocket.png" />
                  </DetailPageButton>
              </SpaceImageWrapper>
              : item.media_type === 'video'
              ? <SpaceImageWrapper key={item.date}>
-                 <SpaceVideo src={item.url}/><DetailPageButton onClick={()=> history.push(`/detail-page/${item.date}`)}>
+                 <SpaceVideo src={item.url}/><DetailPageButton onClick={() => handleClick(item.date)}>
                      details: <RocketIcon src="/images/rocket.png" />
                      </DetailPageButton>
                      </SpaceImageWrapper>
