@@ -1,8 +1,9 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from '@emotion/styled';
 import DateInput from "../components/DateInput";
-import {SearchButton} from "../components/SearchButton"
+import { SearchButton } from "../components/SearchButton"
+import {fadeIn, fadeOut } from "../utils/animations"
 
 const PContainer = styled.div`
   display: flex;
@@ -34,10 +35,11 @@ const GalleryContainer = styled.div`
 column-count: 1;
 column-gap: 0.25rem;
 line-height: 0;
-margin: 0;
+margin: 0 0 1rem 0;
 padding: 0 1rem;
 z-index: 0;
 width:100%;
+animation: ${fadeIn} 2s ease-in;
 
 @media only screen and (min-width: 48rem){
    column-count: 2;
@@ -71,7 +73,8 @@ padding-bottom: 0.25rem;
 `
 
 const DetailPageButton = styled.button`
-display: flex;
+display: ${props => props.isFetching ? 'none' : 'flex'};
+animation: ${fadeIn} 4s ease-in;
 justify-content: center;
 align-items: center;;
 position: absolute;
@@ -103,6 +106,10 @@ text-align: flex-start;
   font-size: 0.825rem;
   padding: 1rem;
   margin: -1.5rem 0 0.5rem 0;
+`
+
+const PlaceholderContainer = styled(GalleryContainer)`
+animation: ${fadeOut} 3s ease-out;
 `
 
 const LoadingPlaceholderBlockBig = styled.div`
@@ -180,9 +187,8 @@ export default function NasaInfos() {
         <SearchButton type="submit">Search</SearchButton>
       </Form>
         <Hint>Please note: you can only search for date ranges between 2015-01-01 and today.</Hint>
-     <GalleryContainer>
          {isFetching && (
-         <>
+         <PlaceholderContainer>
            <LoadingPlaceholderBlockBig />
            <LoadingPlaceholderBlockBig />
            <LoadingPlaceholderBlockBig />
@@ -193,12 +199,13 @@ export default function NasaInfos() {
            <LoadingPlaceholderBlockBig />
            <LoadingPlaceholderBlockSmall />
            <LoadingPlaceholderBlockBig />
-        </>
+        </PlaceholderContainer>
         )}
-        {!isFetching && nasaInfos.length > 0 && nasaInfos.map((item) => item.media_type === 'image' 
+        {!isFetching && 
+        <GalleryContainer> {nasaInfos.length > 0 && nasaInfos.map((item) => item.media_type === 'image' 
          ? <SpaceImageWrapper key={item.date}>
              <SpaceImage src={item.url} alt={item.title} />
-             <DetailPageButton onClick={()=> history.push(`/detail-page/${item.date}`)}>
+             <DetailPageButton onClick={()=> history.push(`/detail-page/${item.date}`)} isFetching={isFetching}>
                  details: <RocketIcon src="/images/rocket.png" />
                  </DetailPageButton>
              </SpaceImageWrapper>
@@ -210,5 +217,5 @@ export default function NasaInfos() {
                      </SpaceImageWrapper>
              : null
              )}
-         </GalleryContainer>
+         </GalleryContainer>}
       </PContainer>)}

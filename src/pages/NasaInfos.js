@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import DateInput from "../components/DateInput";
 import { SearchButton } from "../components/SearchButton"
 import { NavLink, useParams } from "react-router-dom";
+import { fadeIn, fadeOut } from "../utils/animations"
 
 const PContainer = styled.div`
   display: flex;
@@ -29,7 +30,8 @@ const CContainer = styled.div`
   background-color: ${(props) => props.theme.secondary};
   padding: 1rem;
   width: 100%;
-
+  animation: ${fadeIn} 1s ease;
+  
   @media only screen and (min-width: 48rem){
     padding: 1rem 2rem;
   }
@@ -60,6 +62,7 @@ const Card = styled.div`
   color: ${(props) => props.theme.primary};
   background-color: ${(props) => props.theme.secondary};
   padding-bottom: 2rem;
+  animation: ${fadeIn} 1s ease-in;
 
   @media only screen and (min-width: 64rem){
     display: grid;
@@ -90,6 +93,7 @@ padding: 0;
   color: ${(props) => props.theme.primary};
   background-color: ${(props) => props.theme.secondary};
   padding-bottom: 2rem;
+animation: ${fadeOut} 2s ease-out;
 
   @media only screen and (min-width: 64rem){
     display: grid;
@@ -134,11 +138,12 @@ const Img = styled.img`
   display: flex;
   width: 100%;
   height: auto;
-  background-color: ${(props) => props.theme.quinary};
+  min-height: 33%;
   margin: 1rem 0.5rem 0 0;
   padding: auto;
   border-radius: 0.75rem;
   grid-area: image;
+  animation: ${fadeIn} 1s ease-in;
 `;
 
 const ArticlePlaceholder = styled.div`
