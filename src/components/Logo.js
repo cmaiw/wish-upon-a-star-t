@@ -45,7 +45,6 @@ export default function Logo() {
   return (
     <Container>
       <LogoIcon src={planet} />
-      {/* <Title>Wisch upon a star...</Title> */}
     </Container>
   );
 }
