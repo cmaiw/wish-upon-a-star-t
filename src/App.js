@@ -111,10 +111,13 @@ function App() {
             <Route exact path="/gallery">
              <RandomGallery />
             </Route>
+            <Route exact path="/gallery/:startDate/:endDate/">
+             <RandomGallery />
+            </Route>
             <Route exact path='/image-search' >
               <NasaInfos />
             </Route>
-            <Route exact path='/detail-page/:entryDate' >
+            <Route exact path='/detail-page/:query/:entryDate' >
               <NasaInfos />
             </Route>
             <Route exact path="/about">
