@@ -169,11 +169,11 @@ export default function NasaInfos() {
   
     const getDate = (e) => {
       e.preventDefault();
-      setQuery(`&start_date=${startDate}&end_date=${endDate}`)
+      setQuery(window.location.href.includes('&start_date') && window.location.href.includes('&start_date') ? window.location.href.slice((window.location.href.indexOf('6') -1), window.location.href.lastIndexOf('/')) : `&start_date=${startDate}&end_date=${endDate}`)
     };
 
-    const handleClick = (date) => {
-     history.push(`/detail-page/${date}`);
+    const handleClick = (query, date) => {
+     history.push(`/detail-page/${!query ? `&start_date=${defaultStartDate}&end_date=${defaultEndDate}/${date}` : `${query}/${date}`}`);
       window.scroll(0,0)
     }
     
@@ -211,13 +211,13 @@ export default function NasaInfos() {
          ? <SpaceImageWrapper key={item.date}>
              <SpaceImage src={item.url} alt={item.title} />
              <DetailPageButton 
-             onClick={() => handleClick(item.date)}>
+             onClick={() => handleClick(query, item.date)}>
                  details: <RocketIcon src="/images/rocket.png" />
                  </DetailPageButton>
              </SpaceImageWrapper>
              : item.media_type === 'video'
              ? <SpaceImageWrapper key={item.date}>
-                 <SpaceVideo src={item.url}/><DetailPageButton onClick={() => handleClick(item.date)}>
+                 <SpaceVideo src={item.url}/><DetailPageButton onClick={() => handleClick(query, item.date)}>
                      details: <RocketIcon src="/images/rocket.png" />
                      </DetailPageButton>
                      </SpaceImageWrapper>

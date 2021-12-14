@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom"
 import styled from "@emotion/styled";
 import DateInput from "../components/DateInput";
 import { SearchButton } from "../components/SearchButton"
@@ -146,6 +147,11 @@ const Img = styled.img`
   animation: ${fadeIn} 1s ease-in;
 `;
 
+const BacklinkIcon = styled.img`
+width: 1.5rem;
+height: auto;
+`
+
 const ArticlePlaceholder = styled.div`
 display: flex;
 height: 45vh;
@@ -265,12 +271,6 @@ width: fit-content;
     border-radius: 50%;
     outline: none;
   };
-
-&:focus {
-    border: 2px dotted ${(props) => props.theme.quartenary};
-    border-radius: 50%;
-    outline: none;
-  };
 `
 
 const EarthIcon = styled.img`
@@ -296,6 +296,17 @@ const Iframe = styled("iframe")`
   grid-area: image;
 `;
 
+const BackButton = styled.button`
+background: transparent;
+color: ${props => props.theme.primary};
+outline: none;
+border: none;
+width: fit-content;
+margin: 1rem 0 0 0;
+padding: 0;
+cursor: pointer;
+`
+
 export default function NasaInfos() {
   const [nasaInfos, setNasaInfos] = React.useState([]);
   const [date, setDate] = React.useState("");
@@ -303,6 +314,7 @@ export default function NasaInfos() {
   // eslint-disable-next-line no-unused-vars
   const [isFetching, setIsFetching] = React.useState(true);
   const {entryDate} = useParams();
+  const history = useHistory();
   
   React.useEffect(() => {
     async function getNasaDatabyDate() {
@@ -349,6 +361,10 @@ export default function NasaInfos() {
             Please note, you can only search for a date between 2015-01-01 and
             today.
           </Note>
+          {window.location.pathname.includes('detail-page') && 
+          <BackButton onClick={() => history.push(`${window.location.pathname.replace('detail-page' , 'gallery')}`)}>
+            <BacklinkIcon src="/images/fast-forward.png" alt="backlink"/>
+            </BackButton>}
           <Main>
             {isFetching && (<><PlaceholderCard>
               <FirstColumnPlaceholder>
