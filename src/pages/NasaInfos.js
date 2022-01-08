@@ -1,9 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom"
 import styled from "@emotion/styled";
 import DateInput from "../components/DateInput";
 import { SearchButton } from "../components/SearchButton"
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { fadeIn, fadeOut } from "../utils/animations"
 
 const PContainer = styled.div`
@@ -148,8 +147,11 @@ const Img = styled.img`
 `;
 
 const BacklinkIcon = styled.img`
-width: 1.5rem;
+width: 1rem;
 height: auto;
+@media only screen and (min-width: 48rem){
+  width: 1.25rem;
+}
 `
 
 const ArticlePlaceholder = styled.div`
@@ -314,8 +316,8 @@ export default function NasaInfos() {
   // eslint-disable-next-line no-unused-vars
   const [isFetching, setIsFetching] = React.useState(true);
   const {entryDate} = useParams();
-  const history = useHistory();
-  
+  const history = useHistory()
+
   React.useEffect(() => {
     async function getNasaDatabyDate() {
       const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
@@ -325,8 +327,7 @@ export default function NasaInfos() {
       const data = await response.json();
       return data;
     }
-
-    async function refreshNasa() {
+     async function refreshNasa() {
       setIsFetching(true);
       const nasaData = await getNasaDatabyDate();
       setNasaInfos(nasaData);
@@ -344,6 +345,7 @@ export default function NasaInfos() {
     setQuery(date);
     setDate("");
   };
+ 
   return (
     <>
       <PContainer>
@@ -362,7 +364,7 @@ export default function NasaInfos() {
             today.
           </Note>
           {window.location.pathname.includes('detail-page') && 
-          <BackButton onClick={() => history.push(`${window.location.pathname.replace('detail-page' , 'gallery')}`)}>
+          <BackButton onClick={()=>history.push(`/gallery/?${window.location.pathname.slice(14, -11)}`)}>
             <BacklinkIcon src="/images/fast-forward.png" alt="backlink"/>
             </BackButton>}
           <Main>
