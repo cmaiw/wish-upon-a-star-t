@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import planet from "../resources/planet.png";
+import planet from "./../resources/planet.png";
 
 const Container = styled.div`
   width: 100%;
@@ -44,7 +44,7 @@ position: absolute;
 export default function Logo() {
   return (
     <Container>
-      <LogoIcon src={planet} />
+      <LogoIcon src={planet} alt='logo-planet'/>
     </Container>
   );
 }

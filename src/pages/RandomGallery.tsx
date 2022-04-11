@@ -1,9 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import DateInput from "../components/DateInput";
 import { SearchButton } from "../components/SearchButton"
 import {fadeIn, fadeOut } from "../utils/animations"
+import { NasaDataProps } from './NasaInfos';
 
 const PContainer = styled.div`
   display: flex;
@@ -72,7 +73,7 @@ border: none;
 padding-bottom: 0.25rem;
 `
 
-const DetailPageButton = styled.button`
+const DetailPageButton = styled.button<{isFetching: boolean}>`
 display: ${props => props.isFetching ? 'none' : 'flex'};
 animation: ${fadeIn} 4s ease-in;
 justify-content: center;
@@ -89,7 +90,7 @@ background: transparent;
 color: ${props => props.theme.tertiary};
 font-family: "Orbitron", sans-serif;
 
-&:hover {
+&:hover, :focus {
    border-bottom: 2px solid ${props => props.theme.tertiary};
 }
 `
@@ -128,16 +129,25 @@ opacity: 0.1;
 `
 
 export default function NasaInfos() {
+  const initialNasaDataState = {
+    date: undefined,
+    explanation: undefined,
+    media_type: undefined,
+    service_version: undefined,
+    title: undefined,
+    url: undefined,
+    copyright: undefined
+  }
     const defaultEndDateMilliseconds = Date.now()
     const defaultEndDate = new Date(defaultEndDateMilliseconds).toISOString().slice(0, 10)
     const defaultStartDate = new Date(defaultEndDateMilliseconds - 1209600000).toISOString().slice(0, 10)
     const params = new URLSearchParams(window.location.search)
-    const history = useHistory()
-    const [nasaInfos, setNasaInfos] = React.useState([]);
-    const [startDate, setStartDate] = React.useState(defaultStartDate);
-    const [endDate, setEndDate] = React.useState(defaultEndDate);
-    const [query, setQuery] = React.useState(params.has('start_date') ? `&${params.toString()}` : `&start_date=${defaultStartDate}&end_date=${defaultEndDate}`);
-    const [isFetching, setIsFetching] = React.useState(false) 
+    const navigate = useNavigate()
+    const [nasaInfos, setNasaInfos] = React.useState<NasaDataProps[]>([initialNasaDataState]);
+    const [startDate, setStartDate] = React.useState<string>(defaultStartDate);
+    const [endDate, setEndDate] = React.useState<string>(defaultEndDate);
+    const [query, setQuery] = React.useState<string>(params.has('start_date') ? `&${params.toString()}` : `&start_date=${defaultStartDate}&end_date=${defaultEndDate}`);
+    const [isFetching, setIsFetching] = React.useState<boolean>(false) 
     
     React.useEffect(() => {
       async function getNasaDatabyDate() {
@@ -174,7 +184,7 @@ export default function NasaInfos() {
   
 
     const handleClick = (query, date) => {
-     history.push(`/detail-page/${!query ? `&start_date=${defaultStartDate}&end_date=${defaultEndDate}/${date}` : `${query}/${date}`}`);
+     navigate(`/detail-page/${!query ? `&start_date=${defaultStartDate}&end_date=${defaultEndDate}/${date}` : `${query}/${date}`}`);
       window.scroll(0,0)
     }
 
@@ -190,7 +200,7 @@ export default function NasaInfos() {
         type="date"
         placeholder="yyyy-mm-dd"
         value={endDate === defaultEndDate ? '' : endDate}/>
-        <SearchButton type="submit">Search</SearchButton>
+        <SearchButton type="submit" aria-label='submit-date-range'>Search</SearchButton>
       </Form>
         <Hint>Please note: you can only search for date ranges between 2015-01-01 and today.</Hint>
          {isFetching && (
@@ -212,14 +222,17 @@ export default function NasaInfos() {
          ? <SpaceImageWrapper key={item.date}>
              <SpaceImage src={item.url} alt={item.title} />
              <DetailPageButton 
-             onClick={() => handleClick(query, item.date)}>
-                 details: <RocketIcon src="/images/rocket.png" />
+                onClick={() => handleClick(query, item.date)}
+                isFetching={isFetching}
+                aria-label={`to-detail-page-${item.title}`}
+              >
+                 details: <RocketIcon src="/images/rocket.png" alt="rocket-icon" />
                  </DetailPageButton>
              </SpaceImageWrapper>
              : item.media_type === 'video'
              ? <SpaceImageWrapper key={item.date}>
-                 <SpaceVideo src={item.url}/><DetailPageButton onClick={() => handleClick(query, item.date)}>
-                     details: <RocketIcon src="/images/rocket.png" />
+                 <SpaceVideo src={item.url} title={item.title} sandbox="allow-scripts allow-same-origin allow-presentation"/><DetailPageButton onClick={() => handleClick(query, item.date)} isFetching={isFetching}>
+                     details: <RocketIcon src="/images/rocket.png" alt="rocket-icon" />
                      </DetailPageButton>
                      </SpaceImageWrapper>
              : null

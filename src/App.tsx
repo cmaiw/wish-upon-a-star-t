@@ -3,10 +3,10 @@ import GlobalStyles from "./utils/GlobalStyles";
 import NasaInfos from "./pages/NasaInfos";
 import Header from "./components/Header";
 import Logo from "./components/Logo";
-import { ThemeProvider } from "emotion-theming";
+import { Theme, ThemeProvider } from "@emotion/react";
 import styled from "@emotion/styled";
 import themes from "./utils/themes";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import About from "./pages/About";
 import { DropDNav, DropButton } from "./components/DropDNav";
@@ -73,8 +73,8 @@ const ThemeImage = styled.img`
 `;
 
 function App() {
-  const [theme, setTheme] = React.useState(themes.default);
-  const [menueIsVisible, setMenueIsVisible] = React.useState(false)
+  const [theme, setTheme] = React.useState<Theme>(themes.default);
+  const [menueIsVisible, setMenueIsVisible] = React.useState<boolean>(false)
 
   const handleClick = () => {
     if (theme === themes.default) {
@@ -90,40 +90,28 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
+        <GlobalStyles backGroundColor={theme.secondary}/>
         <Router>
           <Container>
             <Header />
             <Logo />
-            <ThemeSwitch onClick={handleClick}>
+            <ThemeSwitch onClick={handleClick} aria-label='switch-theme'>
               <ThemeImage
-                src="/images/sun-moon-icon.png
-            "
+                alt='theme-switch-image-eclipse'
+                src="/images/sun-moon-icon.png"
               />
             </ThemeSwitch>
           </Container>
-          <DropButton id='DropNavBtn' onClick={handleDropBtnClick}/>
-          <DropDNav id='DropNav' style={{ display: menueIsVisible ? "block" : "none" }} onNavLinkClick={handleNavLinkClick}/>
-          <Switch>
-            <Route exact path="/">
-              <LandingPage />
-            </Route>
-            <Route exact path="/gallery">
-             <RandomGallery />
-            </Route>
-            <Route exact path="/gallery/:startDate:endDate/">
-             <RandomGallery />
-            </Route>
-            <Route exact path='/image-search' >
-              <NasaInfos />
-            </Route>
-            <Route exact path='/detail-page/:query/:entryDate'>
-              <NasaInfos />
-            </Route>
-            <Route exact path="/about">
-              <About />
-            </Route>
-          </Switch>
+          <DropButton id='DropNavBtn' onClick={handleDropBtnClick} />
+          <DropDNav id='DropNav' menueIsVisible={menueIsVisible} onNavLinkClick={handleNavLinkClick}/>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/gallery" element={<RandomGallery />} />
+            <Route path="/gallery/:startDate:endDate/" element={<RandomGallery />} />
+            <Route path='/image-search' element={<NasaInfos />} />
+            <Route path='/detail-page/:query/:entryDate' element={<NasaInfos />} />
+            <Route path="/about" element={ <About />} />
+          </Routes>
         </Router>
       </ThemeProvider>
     </>

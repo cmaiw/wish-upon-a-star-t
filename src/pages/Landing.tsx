@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
+import { keyframes } from "@emotion/react";
 import { NavLink } from "react-router-dom";
-import {shake} from "./../utils/animations";
+import {shake} from "../utils/animations";
 
 const LandingPBg = styled.div`
   display: flex;
@@ -206,7 +206,7 @@ function LandingPage() {
         </WelcomeTxtContainer>
         <EarthImg
           src="/images/earth_glowing.png"
-          alt="Earth from space glowing"
+          alt="Earth-from-space-glowing"
         />
       </LandingPContainer>
     </LandingPBg>
