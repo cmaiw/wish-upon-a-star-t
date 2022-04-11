@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import { NavLink } from "react-router-dom";
-import {shake} from "../utils/animations";
+import {shake} from "../../utils/animations";
 
-const LandingPBg = styled.div`
+
+export const LandingPBg = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +20,7 @@ const LandingPBg = styled.div`
   overflow: hidden;
 `;
 
-const LandingPContainer = styled.div`
+export const LandingPContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -38,7 +37,7 @@ const LandingPContainer = styled.div`
     }
 `;
 
-const EarthImg = styled.img`
+export const EarthImg = styled.img`
   display: flex;
   height: auto;
   width: 100%;
@@ -52,7 +51,7 @@ const EarthImg = styled.img`
   }
 `;
 
-const move = keyframes`
+export const move = keyframes`
   0% {
     transform: translate(10rem, -5rem);
   }
@@ -73,7 +72,7 @@ const move = keyframes`
 }
     `;
 
-const AnimationContainer = styled.div`
+export const AnimationContainer = styled.div`
   display: flex;
   height: auto;
   width: 80%;
@@ -92,7 +91,7 @@ const AnimationContainer = styled.div`
     }
 `;
 
-const ShootingStarImg = styled.img`
+export const ShootingStarImg = styled.img`
   display: flex;
   height: auto;
   position: relative;
@@ -101,7 +100,7 @@ const ShootingStarImg = styled.img`
   margin-top: 0;
 `;
 
-const WelcomeTxtContainer = styled.div`
+export const WelcomeTxtContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -126,7 +125,7 @@ const WelcomeTxtContainer = styled.div`
     }
 `;
 
-const Heading = styled.h1`
+export const Heading = styled.h1`
 color: ${(props) => props.theme.tertiary};
 font-size: 1rem;
 
@@ -135,7 +134,7 @@ font-size: 1rem;
     }
 `;
 
-const Accent = styled.span`
+export const Accent = styled.span`
 font-family: 'Lovers Quarrel', cursive;
 font-weight: 800;
 font-size: 3rem;
@@ -145,12 +144,12 @@ font-size: 3rem;
     }
 `;
 
-const WelcomeTxt = styled.p`
+export const WelcomeTxt = styled.p`
   margin: 0;
   padding: 0.25rem;
 `;
 
-const NavIcon = styled.img`
+export const NavIcon = styled.img`
   width: 2.75rem;
   height: 2.75rem;
   padding: 0.125rem;
@@ -167,7 +166,7 @@ const NavIcon = styled.img`
 
 `;
 
-const AlienIcon = styled.img`
+export const AlienIcon = styled.img`
   width: 3.75rem;
   height: 3.75rem;
   padding: 0.125rem;
@@ -180,37 +179,3 @@ const AlienIcon = styled.img`
     border-radius: 50%;
   }
 `;
-
-function LandingPage() {
-  return (
-    <LandingPBg>
-      <LandingPContainer>
-        <AnimationContainer>
-          <ShootingStarImg src="/images/shootingstar.png" alt="shootingstar" />
-        </AnimationContainer>
-        <Heading><Accent>W</Accent>ish upon a star...</Heading>
-        <WelcomeTxtContainer>
-          <WelcomeTxt>Welcome Adventurer, </WelcomeTxt>
-          <WelcomeTxt>Let us discover space!</WelcomeTxt>
-          <NavLink to="/gallery">
-            <NavIcon src="/images/gallery.png" alt="gallery-icon" />
-          </NavLink>
-          <NavLink to="/image-search">
-            <NavIcon src="/images/telescope.png" alt="telescope-icon" />
-          </NavLink>
-          <WelcomeTxt>Go to space!</WelcomeTxt>
-          <NavLink to="/About">
-            <AlienIcon src="/images/alien.png" alt="alien-icon" />
-          </NavLink>
-          <WelcomeTxt>First Time here? Click the Alien!</WelcomeTxt>
-        </WelcomeTxtContainer>
-        <EarthImg
-          src="/images/earth_glowing.png"
-          alt="Earth-from-space-glowing"
-        />
-      </LandingPContainer>
-    </LandingPBg>
-  );
-}
-
-export default LandingPage;
