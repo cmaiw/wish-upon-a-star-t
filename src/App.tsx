@@ -1,15 +1,15 @@
 import React from "react";
 import GlobalStyles from "./utils/GlobalStyles";
 import NasaInfos from "./pages/NasaInfos/NasaInfos";
-import Header from "./components/Header";
-import Logo from "./components/Logo";
+import Header from "./components/Header/Header";
+import Logo from "./components/Header/Logo";
 import { Theme, ThemeProvider } from "@emotion/react";
 import styled from "@emotion/styled";
 import themes from "./utils/themes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing/Landing";
 import About from "./pages/About";
-import { DropDNav, DropButton } from "./components/DropDNav";
+import { DropDNav, DropButton } from "./components/DropDNav/DropDNav";
 import RandomGallery from "./pages/RandomGallery/RandomGallery"
 
 const Container = styled.div`

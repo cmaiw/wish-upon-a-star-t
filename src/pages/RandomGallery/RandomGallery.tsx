@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import DateInput from "../../components/DateInput";
-import { SearchButton } from "../../components/SearchButton"
+import DateInput from "../../components/DateInput/DateInput";
+import { SearchButton } from "../../components/SearchButton/SearchButton"
 import { NasaDataProps } from '../NasaInfos/NasaInfos';
 import { Form, PContainer, Hint, PlaceholderContainer, LoadingPlaceholderBlockBig, LoadingPlaceholderBlockSmall, GalleryContainer, SpaceImageWrapper, SpaceImage, DetailPageButton, RocketIcon, SpaceVideo } from './styles';
 

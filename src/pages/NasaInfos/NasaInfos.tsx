@@ -1,6 +1,6 @@
 import React from "react";
-import DateInput from "../../components/DateInput";
-import { SearchButton } from "../../components/SearchButton"
+import DateInput from "../../components/DateInput/DateInput";
+import { SearchButton } from "../../components/SearchButton/SearchButton"
 import { useNavigate, useParams } from "react-router-dom";
 import { 
   A, 
