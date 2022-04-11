@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {fadeIn, fadeOut } from "../../utils/animations"
+import { fadeIn } from "../../utils/animations"
 
 export const PContainer = styled.div`
 display: flex;
@@ -25,25 +25,6 @@ width: 100%;
 justify-content: space-around;
 align-items: flex-start;
 padding: 1rem;
-`
-
-export const GalleryContainer = styled.div`
-column-count: 1;
-column-gap: 0.25rem;
-line-height: 0;
-margin: 0 0 1rem 0;
-padding: 0 1rem;
-z-index: 0;
-width:100%;
-animation: ${fadeIn} 2s ease-in;
-
-@media only screen and (min-width: 48rem){
- column-count: 2;
-}
-
-@media only screen and (min-width: 64rem){
- column-count: 3;
-}
 `
 export const SpaceImageWrapper = styled.div`
 width: 100%;
@@ -102,23 +83,4 @@ text-align: flex-start;
 font-size: 0.825rem;
 padding: 1rem;
 margin: -1.5rem 0 0.5rem 0;
-`
-
-export const PlaceholderContainer = styled(GalleryContainer)`
-animation: ${fadeOut} 3s ease-out;
-`
-
-export const LoadingPlaceholderBlockBig = styled.div`
-width: 100%;
-height: 15rem;
-margin: 0.25rem;
-background-color: ${(props) => props.theme.primary};
-opacity: 0.1;
-`
-export const LoadingPlaceholderBlockSmall = styled.div`
-width: 100%;
-height: 10rem;
-margin: 0.25rem;
-background-color: ${(props) => props.theme.primary};
-opacity: 0.1;
 `

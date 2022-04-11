@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
-import { fadeIn, fadeOut } from "../../utils/animations"
-
+import { fadeIn } from "../../utils/animations"
 
 export const PContainer = styled.div`
   display: flex;
@@ -78,44 +77,7 @@ export const Card = styled.div`
   }
 `;
 
-export const PlaceholderCard = styled.div`
-display: flex;
-flex-direction: column;
-width: 100%;
-flex-grow: 1;
-justify-content: center;
-align-items: flex-start;
-margin: 0;
-padding: 0;
-  text-align: left;
-  color: ${(props) => props.theme.primary};
-  background-color: ${(props) => props.theme.secondary};
-  padding-bottom: 2rem;
-animation: ${fadeOut} 2s ease-out;
 
-  @media only screen and (min-width: 64rem){
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 0.25rem;
-    grid-column-gap: 2rem;
-    align-items: start;
-    grid-template-areas:
-    "first second";
-    align-content: start;
-  }
-`;
-
-export const ColumnPlaceholder = styled.div`
-width: 100%;
-height: auto;
-`
-
-export const FirstColumnPlaceholder=styled(ColumnPlaceholder)`
-grid-area: first;
-`
-export const SecondColumnPlaceholder=styled(ColumnPlaceholder)`
-grid-area: second;
-`
 
 export const Form = styled.form`
   display: flex;
@@ -150,34 +112,8 @@ height: auto;
 @media only screen and (min-width: 48rem){
   width: 1.25rem;
 }
-`
-
-export const ArticlePlaceholder = styled.div`
-display: flex;
-height: 45vh;
-width: 100%;
-background-color: ${(props) => props.theme.primary};
-opacity: 0.1; 
-margin: 1rem 0.5rem 1rem 0;
-justify-content: center;
-align-items: center;
-padding: auto;
-border-radius: 0.75rem;
-
-@media only screen and (min-width: 48rem){
-  width: 100%;
-  height: 37vh;
-}
 `;
 
-export const TextPlaceholder = styled.div`
-width: 100%;
-min-height: 1.5rem;
-background-color: ${(props) => props.theme.primary};
-border-radius: 0.75rem;
-margin: 1rem 0 0 0;
-opacity: 0.1;
-`;
 export const H3 = styled.h3`
   text-align: left;
   color: ${(props) => props.theme.primary};
@@ -309,4 +245,13 @@ cursor: pointer;
 &:hover, :focus {
    border-bottom: 2px dotted ${props => props.theme.tertiary};
 }
+`
+export const ErrorOverlay = styled.div`
+position: absolute;
+top: 7rem;
+height: 12rem;
+width: auto;
+background-color: ${props => props.theme.secondary};
+color: ${props => props.theme.primary};
+margin: 1rem;
 `
