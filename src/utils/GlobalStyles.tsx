@@ -1,7 +1,7 @@
 import React from "react";
-import { Global, css } from "@emotion/core";
+import { Global, css } from "@emotion/react";
 
-export default function GlobalStyles() {
+export default function GlobalStyles({backGroundColor}: {backGroundColor: string}) {
   return (
     <Global
       styles={css`
@@ -16,7 +16,7 @@ export default function GlobalStyles() {
           padding: 0;
           height: 100vh;
           width: 100vw;
-          background-color: ${(props) => props.theme.secondary};
+          background-color: ${backGroundColor};
           font-family: "Orbitron", sans-serif;
           margin: 0;
         }

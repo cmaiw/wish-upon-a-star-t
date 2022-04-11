@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import {shake} from "./../utils/animations";
+import {shake} from "../utils/animations";
 
 export default function About() {
   const PageContainer = styled.div`
@@ -82,7 +82,7 @@ export default function About() {
     <PageContainer>
       <ContentContainer>
         <Article>
-          <AlienIcon src="/images/alien.png" />
+          <AlienIcon src="/images/alien.png" alt="alien-animated" />
           <H3>Hello Adventurer! Nice to meet you!</H3>
           <P>Are you ready to discover space with me? Yes? Nice.</P>
           <P>
@@ -100,7 +100,7 @@ export default function About() {
           </P>
           <P>
             You love a lighter background? Click
-            <Icon src="/images/sun-moon-icon.png" alt="theme-switch-icon"/> and I will change the theme
+            <Icon src="/images/sun-moon-icon.png" alt="theme-switch-icon-eclipse"/> and I will change the theme
             for you.
           </P>
           <P>Oh...and...do not forget to make a whish on the shooting star.</P>
@@ -109,7 +109,10 @@ export default function About() {
           <H3>Credits:</H3>
           <P>
             Special Thanks to the{" "}
-            <Link href="https://api.nasa.gov/" target="_blank">
+            <Link 
+              href="https://api.nasa.gov/" 
+              target="_blank"
+              rel="noopener noreferrer" >
               NASA
             </Link>{" "}
             for taking us to space!
@@ -119,9 +122,9 @@ export default function About() {
             Globe: made by:{" "}
             <Link
               href="https://www.flaticon.com/authors/those-icons"
-              title="Those
-          Icons"
+              title="Those Icons"
               target="_blank"
+              rel="noopener noreferrer" 
             >
               Those Icons{" "}
             </Link>
@@ -130,6 +133,7 @@ export default function About() {
               href="https://www.flaticon.com/"
               title="Flaticon"
               target="_blank"
+              rel="noopener noreferrer" 
             >
               www.flaticon.com{" "}
             </Link>
@@ -140,6 +144,7 @@ export default function About() {
               href="https://www.flaticon.com/authors/freepik"
               title="Freepik"
               target="_blank"
+              rel="noopener noreferrer" 
             >
               Freepik{" "}
             </Link>
@@ -148,6 +153,7 @@ export default function About() {
               href="https://www.flaticon.com/"
               title="Flaticon"
               target="_blank"
+              rel="noopener noreferrer" 
             >
               www.flaticon.com{" "}
             </Link>
@@ -158,6 +164,7 @@ export default function About() {
               href="https://www.flaticon.com/authors/kiranshastry"
               title="Kiranshastry"
               target="_blank"
+              rel="noopener noreferrer" 
             >
               Kiranshastry{" "}
             </Link>
@@ -166,6 +173,7 @@ export default function About() {
               href="https://www.flaticon.com/"
               title="Flaticon"
               target="_blank"
+              rel="noopener noreferrer" 
             >
               www.flaticon.com{" "}
             </Link>
@@ -176,24 +184,40 @@ export default function About() {
               href="https://www.flaticon.com/authors/freepik"
               title="Freepik"
               target="_blank"
+              rel="noopener noreferrer" 
             >
               Freepik{" "}
             </Link>{" "}
             from:{" "}
-            <Link href="https://www.flaticon.com/" title="Flaticon">
+            <Link 
+            href="https://www.flaticon.com/" 
+            title="Flaticon"
+            target="_blank"
+            rel="noopener noreferrer" 
+            >
               www.flaticon.com
             </Link>
           </P>
           <P>
-            Planet made by: <Link href="https://www.freepik.com" title="Freepik">Freepik</Link>
+            Planet made by: <Link 
+            href="https://www.freepik.com" 
+            title="Freepik" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            >Freepik</Link>
             from:{" "}
-            <Link href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</Link>
+            <Link 
+            href="https://www.flaticon.com/de/" 
+            title="Flaticon"
+            target="_blank" 
+            rel="noopener noreferrer">www.flaticon.com</Link>
           </P>
           <P>
             Planet Earth on landingpage:{" "}
             <Link
               href="https://picsart.com/es_es/i/sticker-planet-267730243011211"
-              target="_blank"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
               earth
             </Link>
@@ -204,6 +228,7 @@ export default function About() {
               href="https://www.flaticon.com/authors/freepik"
               title="Freepik"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Freepik
             </Link>{" "}
@@ -211,7 +236,8 @@ export default function About() {
             <Link
               href="https://www.flaticon.com/"
               title="Flaticon"
-              target="_blank"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
               www.flaticon.com
             </Link>
@@ -221,7 +247,8 @@ export default function About() {
             <Link
               title="eclipse"
               href="https://www.pngrepo.com/svg/223559/eclipse-moon"
-              target="_blank"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
               eclipse
             </Link>

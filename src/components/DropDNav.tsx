@@ -2,8 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
-export const DropButton = ({onClick}) => {
-  
   const Button = styled.button`
   position: fixed;
   top: 5.25rem;
@@ -49,15 +47,19 @@ export const DropButton = ({onClick}) => {
       width: 3rem;
     }
   `;
+export const DropButton = ({onClick, id}:{onClick: () => void, id?: string}) => {
+  
 
 return( 
-  <Button onClick={onClick}>
-    <MenueIcon src="/images/menux.png" />
+  <Button onClick={onClick} id={id} aria-label='drop-down-navigation-open-close'>
+    <MenueIcon src="/images/menux.png" alt='navigation-logo-planet'/>
   </Button>)
 }
 
-export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
-  const TopNav = styled.nav`
+
+  const TopNav = styled.nav<{
+    menueIsVisible: boolean
+    }>`
     position: fixed;
     top: 6.5rem;
     left: 0;
@@ -71,6 +73,7 @@ export const DropDNav = ({menueIsVisible, style, onNavLinkClick}) => {
     color: ${(props) => props.theme.secondary};
     border-radius: 0.75rem;
     z-index: 10;
+    display: ${props => props.menueIsVisible ? 'block' : 'none'};
 
     @media only screen and (min-width: 33.75rem){
       top: 6.5rem;
@@ -117,29 +120,30 @@ const Icon = styled.img`
     padding: 0.5rem 0;
   `;
 
+export const DropDNav = ({id, onNavLinkClick, menueIsVisible}:{id?: string, onNavLinkClick: () => void, menueIsVisible: boolean}) => {
   return (
-    <TopNav menueIsVisible={menueIsVisible} style={style}>
+    <TopNav menueIsVisible={menueIsVisible} id={id}>
           <StyledNavLink to="/" onClick={onNavLinkClick}>
             <NavItem>
-              <Icon src="/images/globe.png"/>
+              <Icon src="/images/globe.png" alt="icon-globe" />
               Earth
             </NavItem>
           </StyledNavLink>
           <StyledNavLink to="/gallery" onClick={onNavLinkClick}>
             <NavItem>
-              <Icon src="/images/gallery.png"/>
+              <Icon src="/images/gallery.png" alt="icon-gallery"/>
               Gallery
             </NavItem>
           </StyledNavLink>
           <StyledNavLink to="/image-search" onClick={onNavLinkClick}>
             <NavItem>
-              <Icon src="/images/telescope.png" />
+              <Icon src="/images/telescope.png" alt="icon-telescope"/>
               Space
             </NavItem>
           </StyledNavLink>
           <StyledNavLink to="/about" onClick={onNavLinkClick}>
             <NavItem>
-              <Icon src="/images/alien.png" />
+              <Icon src="/images/alien.png" alt="icon-alien"/>
               About
             </NavItem>
           </StyledNavLink>

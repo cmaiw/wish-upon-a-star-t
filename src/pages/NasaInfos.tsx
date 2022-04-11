@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import DateInput from "../components/DateInput";
 import { SearchButton } from "../components/SearchButton"
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { fadeIn, fadeOut } from "../utils/animations"
 
 const PContainer = styled.div`
@@ -307,16 +307,39 @@ width: fit-content;
 margin: 1rem 0 0 0;
 padding: 0;
 cursor: pointer;
-`
 
+&:hover, :focus {
+   border-bottom: 2px dotted ${props => props.theme.tertiary};
+}
+`
+export interface NasaDataProps {
+date?: string
+explanation?: string
+media_type?: string
+service_version?: string
+title?: string
+url?: string
+hdurl?: string
+copyright?: string
+}
 export default function NasaInfos() {
-  const [nasaInfos, setNasaInfos] = React.useState([]);
-  const [date, setDate] = React.useState("");
-  const [query, setQuery] = React.useState("");
+  const initialNasaDataState = {
+    date: undefined,
+    explanation: undefined,
+    media_type: undefined,
+    service_version: undefined,
+    title: undefined,
+    url: undefined,
+    copyright: undefined
+  }
+  const today = new Date(Date.now()).toISOString().slice(0, 10)
+  const [nasaInfos, setNasaInfos] = React.useState<NasaDataProps>(initialNasaDataState);
+  const [date, setDate] = React.useState<string>(today);
+  const [query, setQuery] = React.useState<string>("");
   // eslint-disable-next-line no-unused-vars
-  const [isFetching, setIsFetching] = React.useState(true);
+  const [isFetching, setIsFetching] = React.useState<boolean>(true);
   const {entryDate} = useParams();
-  const history = useHistory()
+  const navigate = useNavigate()
 
   React.useEffect(() => {
     async function getNasaDatabyDate() {
@@ -345,7 +368,6 @@ export default function NasaInfos() {
     setQuery(date);
     setDate("");
   };
- 
   return (
     <>
       <PContainer>
@@ -357,14 +379,14 @@ export default function NasaInfos() {
               placeholder="yyyy-mm-dd"
               value={date}
             ></DateInput>
-            <SearchButton type="submit">Search</SearchButton>
+            <SearchButton type="submit" aria-label='submit-date'>Search</SearchButton>
           </Form>
           <Note>
             Please note, you can only search for a date between 2015-01-01 and
             today.
           </Note>
           {window.location.pathname.includes('detail-page') && 
-          <BackButton onClick={()=>history.push(`/gallery/?${window.location.pathname.slice(14, -11)}`)}>
+          <BackButton onClick={()=> navigate(`/gallery/?${window.location.pathname.slice(14, -11)}`)} aria-label="button-go-back">
             <BacklinkIcon src="/images/fast-forward.png" alt="backlink"/>
             </BackButton>}
           <Main>
@@ -398,24 +420,24 @@ export default function NasaInfos() {
                 <FirstColumnH3>{nasaInfos.title}</FirstColumnH3>
                 {!nasaInfos.title ? (nasaInfos.media_type === "video" ? <FirstColumnP>Astronomy Video of the Day:</FirstColumnP> : <FirstColumnP>Astronomy Picture of the Day:</FirstColumnP>) : null}
                 {nasaInfos.media_type === "video" ? (
-                  <Iframe src={nasaInfos.url}></Iframe>
+                  <Iframe src={nasaInfos.url} title={nasaInfos.title} sandbox='allow-scripts allow-same-origin allow-presentation'/>
                 )
-                :(<Img src={nasaInfos.url} />)}
+                :(<Img src={nasaInfos.url} alt={nasaInfos.title} />)}
                 <ShortText>Date: {nasaInfos.date}</ShortText>
                 {nasaInfos.copyright && <CopyrightText>© {nasaInfos.copyright}</CopyrightText>}
                 {nasaInfos.explanation &&(<>
                 <SecondColumnP>{nasaInfos.explanation}</SecondColumnP></>)}
                 {nasaInfos.media_type === "video" ? (
-                  <A href={nasaInfos.url} target="_blank">
+                  <A href={nasaInfos.url} rel="noopener noreferrer" target="_blank" >
                     Open video in new Window!
                   </A>
                 ) : (
-                  <A href={nasaInfos.hdurl} target="_blank">
+                  <A href={nasaInfos.hdurl} rel="noopener noreferrer" target="_blank">
                     Open picture in new Window!
                   </A>)}
               </Card>
-            <EarthLink to="/">
-              <EarthIcon src="/images/globe.png" />
+            <EarthLink to="/" aria-label={`${nasaInfos.title}-hd-url`} >
+              <EarthIcon src="/images/globe.png" alt="earth-icon" />
             </EarthLink>
             <P>Back to planet Earth!</P></>)}
           </Main>
