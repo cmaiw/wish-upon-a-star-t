@@ -1,4 +1,4 @@
-# Welcome to this Repository" <img src="https://github.com/cmaiw/wish-upon-a-star-t/blob/master/public/logoApp.png" align="right" width="200">
+# Welcome to this Repository <img src="https://github.com/cmaiw/wish-upon-a-star-t/blob/master/public/logoApp.png" align="right" width="200">
 
 Wish upon a star is a cute, full responsive web application with animated Landingpage, theming, search function. It allows you to discover the NASAs public apod API. You can see the Astronomy Picture of the Day and read additional information about it. The search function allows to browse older pictures by date. In the gallery, you can pick a date range. Try it out and have fun!
 
